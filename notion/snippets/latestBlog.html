@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Greeting Message</title>
+    <style>
+        #lbl {
+            font-family: monospace;
+            font-size: xx-large;
+            color: #626262;
+            padding: 5px;
+            border: 1px solid #ececec;
+            text-align: center;
+            line-height: 1.5;
+            height: 85%
+        }
+
+        #lbl2 {
+            font-size: large;
+        }
+
+        body {
+            /* background-color: aliceblue; */
+            background-color: #ddebec;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lbl"></div>
+</body>
+
+<script>
+    title = "Articles"
+    document.getElementById('lbl').innerHTML =
+        title += `<div id="lbl2">Latest Post</div>`;
+</script>
+
+</html>
