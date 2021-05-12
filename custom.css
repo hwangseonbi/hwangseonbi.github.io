@@ -59,24 +59,24 @@
 
 /* Dark mode theming */
 :root[color-mode="dark"] {
-  --header-background: #4ec58a;
+  --header-background: #556e53;
   --header-font-color: #ffffff;
 
-  --body-background: #343a40;
+  --body-background: #222525;
   --body-font-color: #ced3d8;
 
-  --button-background: #62cb97;
-  --button-border-color: #4ec58a;
+  --button-background: #8fa3af;
+  --button-border-color: #8fa3af;
 
-  --link-color: #7ac29e;
-  --link-color-visited: #7ac29e;
+  --link-color: #8fa3af;
+  --link-color-visited: #8fa3af;
 
   --code-background: #2f353a;
   --code-accent-color: #262b2f;
   --code-accent-color-lite: #2b3035;
 
-  --accent-color: #2b3035;
-  --accent-color-lite: #2f353a;
+  --accent-color: #222525;
+  --accent-color-lite: #222525;
 
   --control-icons: #b2bac1;
 
