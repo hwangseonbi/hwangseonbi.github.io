@@ -59,7 +59,7 @@
 
 /* Dark mode theming */
 :root[color-mode="dark"] {
-  --header-background: #556e53;
+  --header-background: #222525;
   --header-font-color: #ffffff;
 
   --body-background: #222525;
@@ -87,7 +87,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-background: #556e53;
+    --header-background: #222525;
     --header-font-color: #ffffff;
 
     --body-background: #222525;
