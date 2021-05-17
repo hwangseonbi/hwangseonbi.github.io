@@ -1,8 +1,8 @@
 /* Light mode theming */
 :root,
 :root[color-mode="light"] {
-  --header-background: #4ec58a;
-  --header-font-color: #ffffff;
+  --header-background: #ffffff;
+  --header-font-color: #343a40;
 
   --body-background: #ffffff;
   --body-font-color: #343a40;
@@ -22,14 +22,14 @@
 
   --control-icons: #b2bac1;
 
-  --footer-background: #2f333e;
+  --footer-background: #ffffff;
   --footer-font-color: #ffffff;
   --footer-link-color: #ffcc5c;
   --footer-link-color-visited: #ffcc5c;
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --header-background: #4ec58a;
+    --header-background: #ffffff;
     --header-font-color: #ffffff;
 
     --body-background: #ffffff;
