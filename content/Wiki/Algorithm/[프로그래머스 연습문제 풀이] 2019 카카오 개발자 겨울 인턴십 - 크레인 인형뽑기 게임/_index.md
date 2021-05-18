@@ -74,6 +74,7 @@ move의 1이라함은 board의 row를 뜻하므로 위 배열에서는 board[0][
 
 {{< tabs "정답" >}}
 {{< tab "1차 풀이" >}}
+
 ```python
 def rotated(board):
     list_of_tuples = zip(*board[::-1])

@@ -7,8 +7,7 @@ date: "2021-05-01"
 <br><br>
 
 ## 템플릿
-
-```python
+{{< highlight Python "linenos=table" >}}
 """
 분류 : 
 문제명 : 
@@ -44,13 +43,13 @@ def TEST():
         print("\n\n")
 
 TEST()
-```
+{{< /highlight >}}
+
 
 <br>
 
 ## 예시
-
-```python
+{{< highlight Python "linenos=table" >}}
 """
 분류 : 코딩테스트 연습 / 2019 카카오 개발자 겨울 인턴십
 문제명 : 크레인 인형뽑기 게임
@@ -86,4 +85,4 @@ def TEST():
         print("\n\n")
 
 TEST()
-```
+{{< /highlight >}}
