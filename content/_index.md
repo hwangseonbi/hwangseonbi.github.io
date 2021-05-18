@@ -3,11 +3,11 @@ title: "@hwangseonbi"
 date: 2021-05-08T12:15:04+09:00
 resources:
   - name: me
-    src: "me.jpg"
+    src: "me4.png"
     title: 
 ---
+<br>
 
-{{< img name="me" size="tiny" lazy=false >}}
 
 Hi, I'm Taehoon.  [`{{< icon "gdoc_keyborad_arrow_right" >}} About Me`](https://www.notion.so/hwangseonbi/3f9d1fcf7f384b4e8145258fcef32a94)
 <br><br>
