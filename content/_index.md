@@ -3,7 +3,7 @@ title: "@hwangseonbi"
 date: 2021-05-08T12:15:04+09:00
 resources:
   - name: me
-    src: "me.png"
+    src: "me.jpg"
     title: 
 ---
 
