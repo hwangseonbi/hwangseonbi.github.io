@@ -1,6 +1,7 @@
 ---
 title: "퇴사 3개월 차 회고록"
 date: 2021-05-17
+draft: true
 resources:
   - name: Untitled.png
     src: "Untitled.png"
