@@ -1,6 +1,6 @@
 ---
 geekdocCollapseSection: true
-title: 생각
-weight: 5
+title: DevOps
+weight: 2
 
 ---
