@@ -35,9 +35,10 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: content
-          path: content # or path/to/artifact
+          path: content
 
   deploy-content:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - run: |
