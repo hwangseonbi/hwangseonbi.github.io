@@ -1,5 +1,5 @@
 ---
-date: 2021-06-04 16:33:00
+date: 2021-06-04 17:55:00
 resources:
 - name: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
   src: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
@@ -14,7 +14,11 @@ title: Kubernetes configuration pattern에 대하여
 weight: 4
 
 ---
-> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다.<br>→ [Kubernetes configuration pattern에 대하여](/1688b1f5d4f24c989940ab8592717211)***
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Kubernetes configuration pattern에 대하여](https://www.notion.so/hwangseonbi/Kubernetes-configuration-pattern-1688b1f5d4f24c989940ab8592717211)***
+
+<br>
+
+
 
 ---
 
@@ -28,7 +32,15 @@ weight: 4
 
 
 
+<br>
+
+
+
 > ***Kubernetes Pattern<br>Part IV. Configuration Patterns 참고***
+
+<br>
+
+
 
 # 1. EnvVar Configuration
 
