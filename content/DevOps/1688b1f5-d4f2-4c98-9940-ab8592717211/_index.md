@@ -1,5 +1,5 @@
 ---
-date: 2021-06-04 16:02:00
+date: 2021-06-04 16:07:00
 resources:
 - name: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
   src: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
@@ -10,7 +10,7 @@ resources:
 - name: 5f08aace-f8c6-43de-a1da-33aa8d66e2c6.png
   src: 5f08aace-f8c6-43de-a1da-33aa8d66e2c6.png
   title: ''
-title: Kubernetes __Configuraion Patterns__
+title: Kubernetes Configuration Pattern
 weight: 4
 
 ---
