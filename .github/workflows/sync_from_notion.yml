@@ -37,7 +37,7 @@ jobs:
           name: content
           path: content
 
-  deploy-content:
+  deploy_content:
     needs: render_from_notion
     runs-on: ubuntu-latest
     steps:
@@ -67,25 +67,26 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-#   deploy:
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           submodules: true  # Fetch Hugo themes (true OR recursive)
-#           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+  hugo_build_and_deploy:
+    needs: deploy_content
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-#       - name: Setup Hugo
-#         uses: peaceiris/actions-hugo@v2
-#         with:
-#           hugo-version: '0.81.0'
-#           # extended: true
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.81.0'
+          # extended: true
 
-#       - name: Build
-#         run: hugo -t hugo-geekdoc
+      - name: Build
+        run: hugo -t hugo-geekdoc
 
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./public
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
