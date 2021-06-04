@@ -1,5 +1,5 @@
 ---
-date: 2021-06-04 15:05:00
+date: 2021-06-04 18:18:00
 resources:
 - name: 758f423b-1ee9-45e4-aba3-42af4200431e.png
   src: 758f423b-1ee9-45e4-aba3-42af4200431e.png
@@ -17,6 +17,12 @@ title: 느낌으로 이해하는 다익스트라 최단거리 알고리즘
 weight: 0
 
 ---
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [느낌으로 이해하는 다익스트라 최단거리 알고리즘](https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5)***
+
+<br>
+
+
+
 {{< toc >}}
 
 ---
@@ -274,7 +280,15 @@ def dijkstra_using_adj(graph, start):
 
 
 
-{{< expand "▼ 전체 통합 소스 및 실행 결과">}}
+<br>
+
+
+
+<br>
+
+
+
+# 6. 전체 통합 소스 및 실행 결과
 
 {{< highlight Python "linenos=table" >}}
 import heapq
@@ -375,4 +389,21 @@ print(dijkstra_using_adj(graph2, "A"))
 
 {{< img name="6b2d307a-d1d3-4823-abcc-531a73bd25af.png" size="large" width="1662" lazy=false >}}
 
-{{< /expand >}}
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
