@@ -10,7 +10,7 @@ resources:
 - name: 5f08aace-f8c6-43de-a1da-33aa8d66e2c6.png
   src: 5f08aace-f8c6-43de-a1da-33aa8d66e2c6.png
   title: ''
-title: Kubernetes Configuration Pattern
+title: Kubernetes configuration pattern에 대하여
 weight: 4
 
 ---
