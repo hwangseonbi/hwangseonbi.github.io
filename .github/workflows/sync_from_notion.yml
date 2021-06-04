@@ -38,7 +38,7 @@ jobs:
           path: content
 
   deploy-content:
-    needs: job1
+    needs: render_from_notion
     runs-on: ubuntu-latest
     steps:
       - run: |
