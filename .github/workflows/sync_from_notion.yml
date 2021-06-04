@@ -52,6 +52,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: content
+          path: content/
       
       - name: Commit files
         run: |
