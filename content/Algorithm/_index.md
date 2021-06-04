@@ -1,6 +1,6 @@
 ---
 geekdocCollapseSection: true
-title: 생각
-weight: 1
+title: Algorithm
+weight: 0
 
 ---
