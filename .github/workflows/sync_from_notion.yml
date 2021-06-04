@@ -31,3 +31,15 @@ jobs:
       - run: python notion2geekdoc ${{ github.event.inputs.root_page_url }}
         env:
           NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
+    
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - run: ls -al
+#       - name: Commit report
+#         run: |
+#           git config --global user.name 'Your Name'
+#           git config --global user.email 'your-username@users.noreply.github.com'
+#           git commit -am "Automated report"
+#           git push
