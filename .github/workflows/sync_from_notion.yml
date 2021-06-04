@@ -27,3 +27,5 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - run: python notion2geekdoc ${{ github.event.inputs.root_page_url }}
+        env: # Or as an environment variable
+          NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
