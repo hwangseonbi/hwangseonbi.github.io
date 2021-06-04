@@ -64,16 +64,6 @@ jobs:
           status_options: '--untracked-files=all'
           add_options: '-A'
 
-
-  hugo_build_and_deploy:
-    needs: deploy_content
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
