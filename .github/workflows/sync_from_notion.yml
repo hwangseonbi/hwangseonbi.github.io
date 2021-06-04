@@ -1,4 +1,4 @@
-name: Manually triggered workflow
+name: Notion fetch event workflow
 on:
   workflow_dispatch:
     inputs:
@@ -56,7 +56,7 @@ jobs:
       
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Automatic commit from git action(sync_from_notion.yml) : ${{ github.event.inputs.root_page_url }}"
+          commit_message: "Automatic commit from git action(sync_from_notion.yml / ${{ name }}) : ${{ github.event.inputs.root_page_url }}"
           status_options: '--untracked-files=normal'
 
 
