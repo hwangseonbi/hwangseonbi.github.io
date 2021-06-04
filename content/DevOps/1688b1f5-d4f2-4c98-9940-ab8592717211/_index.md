@@ -1,5 +1,5 @@
 ---
-date: 2021-06-04 16:07:00
+date: 2021-06-04 16:33:00
 resources:
 - name: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
   src: 44f6bafc-fe47-4085-9180-8cccaea3d833.png
@@ -14,9 +14,19 @@ title: Kubernetes configuration pattern에 대하여
 weight: 4
 
 ---
-{{< toc >}}
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다.<br>→ [Kubernetes configuration pattern에 대하여](/1688b1f5d4f24c989940ab8592717211)***
 
 ---
+
+<br>
+
+
+
+{{< toc >}}
+
+<br>
+
+
 
 > ***Kubernetes Pattern<br>Part IV. Configuration Patterns 참고***
 
@@ -30,35 +40,35 @@ weight: 4
 
 1. default ENV는 이미지에 정의해준다.
 
-{{< highlight Docker "linenos=table" >}}
+	{{< highlight Docker "linenos=table" >}}
 FROM ubuntu:latest
 
 ENV BACKEND_URL "/backend"
 ENV PROFILE = "DEV"
 ...
-{{< /highlight >}}
+	{{< /highlight >}}
 
-<br>
+	<br>
 
 	
 
 1. 어플리케이션에서 접근한다.
 환경변수로 PROFILE만 주입해주고 어플리케이션 내부에서 PROFILE에 따라 다른 config를 불러오는 것도 하나의 방법이다. (많이 쓰임)
 
-{{< highlight JavaScript "linenos=table" >}}
+	{{< highlight JavaScript "linenos=table" >}}
 contentsTableRefresh:function(){
     const url = `${process.env.BACKEND_URL}/videos/contents`
     fetch(url)
     ...
-{{< /highlight >}}
+	{{< /highlight >}}
 
-<br>
+	<br>
 
 	
 
 1. Kubernetes 정의 파일에서 env를 주입한다. 문자열로 직접 삽입할 수도 있으며 configMap이나 Secret을 참조하여 받아올 수도 있다.
 
-{{< highlight YAML "linenos=table" >}}
+	{{< highlight YAML "linenos=table" >}}
 apiVersion: v1
 kind: Pod
 metadata:
@@ -72,7 +82,7 @@ spec:
 		  value: http://localhost:8080
 		- name : PROFILE
 			valueFrom: ... 
-{{< /highlight >}}
+	{{< /highlight >}}
 
 <br>
 
@@ -183,6 +193,18 @@ spec:
 <br>
 
 
+
+```
+💡참고 : **Secret은 그다지 secret하지 않다.
+그러므로 민감한 정보라면 어플리케이션 단에서도 암호화할 필요가 있다.
+
+-** Secure은 Base64로 인코딩되어 저장되어있다. 그리고 파드에 넣어지기 직전에 디코딩된다.
+- Secret의 아래와 같은 특징이 있긴하다.
+    - Secret은 Pod가 실행되고있는 노드에만 배포된다.
+    - 해당 노드에서 secret은 메모리에 저장된다. pod가 제거되면 같이 제거된다.
+    - ETCD에서 secret은 암호화된 형태로 저장된다.
+- 그래도 어쨌든 root user가 아닌 user도 접근해서 볼 수 있다. (role-based access control 적용하더라도, pod 생성 권한만 있으면 마운트시켜서 볼 수 있음)
+```
 
 <br>
 
@@ -369,6 +391,16 @@ oc new-app demp -p CONFIG_IMAGE=k8spatterns/config-prod:1
 <br>
 
 
+
+```
+👉그런데 내 생각에는, 이 방법은 복잡성이 높아서 왠만하면 피해야겠다..
+
+물론 버전관리가 된다는 점에서는 좋은 점 같긴하나 어플리케이션 개발에 따라 config도 변하기마련인데, 별도로 버전관리를 해야한다는게 오히려 짐이 늘어나는 것 같아 그리 장점으로 느껴지지가 않는다.
+
+게다가 이 글을 쓰게된 처음 원칙을 떠올려보면, "config 변경으로 인해 Application의 빌드를 다시하면 안된다" 였는데 물론 Application 이미지는 그대로이긴하다. 그러나 이렇게 하는 이유로는 Application의 환경별 일관성도 있지만 개발자로서 개발하기 편하게 하기위함도있다. 그런데 이방법으로는 개발자는 괴로워질 것 같다..
+
+CI/CD 면에서 관리 포인트도 늘어나고 config 수정이 매우 어려울 듯(hot reload도 불가능).
+```
 
 <br>
 
