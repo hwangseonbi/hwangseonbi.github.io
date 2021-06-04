@@ -7,24 +7,17 @@ on:
         required: true
 
 jobs:
-  fetch:
+  render_from_notion:
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "Input $root_page_url :  ${{ github.event.inputs.root_page_url }}"
-
-      - name: Checkout github.io
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
           
       - name: Checkout
         uses: actions/checkout@v2
         with:
           repository: hwangseonbi/notion2geekdoc
-          path: notion2geekdoc
-      - run: ls -al
-      - run: pwd
+
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8'
@@ -38,11 +31,58 @@ jobs:
       - run: python notion2geekdoc ${{ github.event.inputs.root_page_url }}
         env:
           NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
-      - run: ls -al    
       
-      - run: ls -al
-#       - name: Push changes
-#         uses: ad-m/github-push-action@master
+      - uses: actions/upload-artifact@v2
+        with:
+          name: content
+          path: content # or path/to/artifact
+
+  deploy-content:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Input $root_page_url :  ${{ github.event.inputs.root_page_url }}"
+
+      - name: Checkout github.io
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: content
+      
+      - name: Commit files
+        run: |
+          git config --local user.email "on91716@gmail.com"
+          git config --local user.name "hwangseonbi"
+          git commit -m "Sync from Notion : ${{ github.event.inputs.root_page_url }}" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+#   deploy:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           submodules: true  # Fetch Hugo themes (true OR recursive)
+#           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+#       - name: Setup Hugo
+#         uses: peaceiris/actions-hugo@v2
+#         with:
+#           hugo-version: '0.81.0'
+#           # extended: true
+
+#       - name: Build
+#         run: hugo -t hugo-geekdoc
+
+#       - name: Deploy
+#         uses: peaceiris/actions-gh-pages@v3
 #         with:
 #           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           branch: ${{ github.ref }}
+#           publish_dir: ./public
