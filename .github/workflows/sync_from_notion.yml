@@ -31,15 +31,14 @@ jobs:
       - run: python notion2geekdoc ${{ github.event.inputs.root_page_url }}
         env:
           NOTION_TOKEN_V2: ${{ secrets.NOTION_TOKEN_V2 }}
-    
+      - run: ls -al    
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - run: ls -al
-#       - name: Commit report
-#         run: |
-#           git config --global user.name 'Your Name'
-#           git config --global user.email 'your-username@users.noreply.github.com'
-#           git commit -am "Automated report"
-#           git push
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: ${{ github.ref }}
