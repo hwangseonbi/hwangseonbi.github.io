@@ -10,10 +10,11 @@
 
 
 
-    <meta name="description" content="1. 다익스트라 알고리즘 2. 아이디어 3. 알고리즘 4. 일반화 5. 구현    1. 다익스트라 알고리즘    다익스트라 알고리즘이 이해가가지않아 며칠동안 끙끙 앓았다. 블로그 몇개 언뜻보아서는 이해하기가 힘들더라..
+    <meta name="description" content="이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.
+Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 다익스트라 최단거리 알고리즘
+  1. 다익스트라 알고리즘 2. 아이디어 3. 알고리즘 4. 일반화 5. 구현 6. 전체 통합 소스 및 실행 결과    1. 다익스트라 알고리즘    다익스트라 알고리즘이 이해가가지않아 며칠동안 끙끙 앓았다. 블로그 몇개 언뜻보아서는 이해하기가 힘들더라..
 (저 같이 집중안하고 대충 공부해보려다가는 시간 왕창날립니다. 한번 볼때 집중해서 흐름 따라가세요)
-나같은 사람을 위해 수학적으로 이 명제가 참이라는 것을 증명하기보다는 경험적으로 이해한 알고리즘의 흐름을 알아본다.
-2. 아이디어    ✅__다익스트라 알고리즘의 핵심__ : 특정 지점에서 다른 지점까지의 최단 거리는 인접 지점까지의 최단 거리로 이루어진다.">
+나같은 사람을 위해 수학적으로 이 명제가 참이라는 것을 증명하기보다는 경험적으로 이해한 알고리즘의 흐름을 알아본다.">
 
 
 
@@ -429,7 +430,11 @@
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
         <h1>느낌으로 이해하는 다익스트라 최단거리 알고리즘</h1>
-        
+        <blockquote>
+<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5">느낌으로 이해하는 다익스트라 최단거리 알고리즘</a></strong></em></p>
+</blockquote>
+<br>
+
 
 
   <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
@@ -439,6 +444,7 @@
     <li><a href="#3-알고리즘">3. 알고리즘</a></li>
     <li><a href="#4-일반화">4. 일반화</a></li>
     <li><a href="#5-구현">5. 구현</a></li>
+    <li><a href="#6-전체-통합-소스-및-실행-결과">6. 전체 통합 소스 및 실행 결과</a></li>
   </ul>
 </nav><hr></div>
 
@@ -802,15 +808,16 @@
 </div>
 </div>
 <br>
-
-<div class="gdoc-expand">
-  <label class="gdoc-expand__head flex justify-between" for="3b691030-7">
-    <span>▼ 전체 통합 소스 및 실행 결과</span>
-    <span>↕</span>
-  </label>
-  <input id="3b691030-7" type="checkbox" class="gdoc-expand__control hidden" />
-  <div class="gdoc-markdown--nested gdoc-expand__content">
-    <div class="highlight"><div class="chroma">
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="6-전체-통합-소스-및-실행-결과">
+        6. 전체 통합 소스 및 실행 결과
+        <a data-clipboard-text="https://hwangseonbi.github.io/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/#6-전체-통합-소스-및-실행-결과" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 6. 전체 통합 소스 및 실행 결과" href="#6-%ec%a0%84%ec%b2%b4-%ed%86%b5%ed%95%a9-%ec%86%8c%ec%8a%a4-%eb%b0%8f-%ec%8b%a4%ed%96%89-%ea%b2%b0%ea%b3%bc">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -903,88 +910,112 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">heapq</span>
-<p><span class="n">graph1</span> <span class="o">=</span> <span class="p">{</span>
-<span class="s1">'A'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'B'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-<span class="s1">'B'</span><span class="p">:</span> <span class="p">{},</span>
-<span class="s1">'C'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'B'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-<span class="s1">'D'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'E'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
-<span class="s1">'E'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'F'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-<span class="s1">'F'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="n">graph1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 <span class="p">}</span>
 <span class="n">graph2</span> <span class="o">=</span> <span class="p">{</span>
-<span class="s1">'A'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'B'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-<span class="s1">'B'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'C'</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-<span class="s1">'C'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'E'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-<span class="s1">'D'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'E'</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
-<span class="s1">'E'</span><span class="p">:</span> <span class="p">{}</span>
-<span class="p">}</span></p>
-<p><span class="k">def</span> <span class="nf">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-<span class="n">distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
-<span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span></p>
-<pre><code>&lt;span class=&quot;n&quot;&gt;heapq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;heappush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;current_distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;heapq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;heappop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adj_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adj_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adj_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;heapq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;heappush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adj_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distances&lt;/span&gt;
-</code></pre>
-<p><span class="k">def</span> <span class="nf">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-<span class="k">def</span> <span class="nf">get_min_node</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
-<span class="n">min_node</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">min_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
-<span class="k">continue</span>
-<span class="k">if</span> <span class="n">min_distance</span> <span class="o">&gt;</span> <span class="n">distance</span><span class="p">:</span>
-<span class="n">min_distance</span> <span class="o">=</span> <span class="n">distance</span>
-<span class="n">min_node</span> <span class="o">=</span> <span class="n">node</span></p>
-<pre><code>    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_visited&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;min_node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_node&lt;/span&gt;
+<span class="k">def</span> <span class="nf">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
+    <span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
 
-&lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;inf&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">start</span><span class="p">))</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">current_distance</span><span class="p">,</span> <span class="n">current_node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 
-&lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_distance</span><span class="p">:</span>
+            <span class="k">continue</span>
 
-&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_min_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_distance&lt;/span&gt;
+        <span class="k">for</span> <span class="n">adj_node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">new_distance</span> <span class="o">=</span> <span class="n">current_distance</span> <span class="o">+</span> <span class="n">d</span>
+            <span class="k">if</span> <span class="n">new_distance</span> <span class="o">&lt;</span> <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]:</span>
+                <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
+                <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">new_distance</span><span class="p">,</span> <span class="n">adj_node</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">distances</span>
 
-    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shortest_distances&lt;/span&gt;
-</code></pre>
-<p><span class="k">print</span><span class="p">(</span><span class="s2">&quot;&ndash;graph1&ndash;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_min_node</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+        <span class="n">min_node</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">min_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">min_distance</span> <span class="o">&gt;</span> <span class="n">distance</span><span class="p">:</span>
+                <span class="n">min_distance</span> <span class="o">=</span> <span class="n">distance</span>
+                <span class="n">min_node</span> <span class="o">=</span> <span class="n">node</span>
+
+        <span class="k">if</span> <span class="n">min_node</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">is_visited</span> <span class="ow">in</span> <span class="n">visited</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_visited</span><span class="p">:</span>
+                    <span class="n">min_node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">return</span> <span class="n">min_node</span>
+
+    <span class="n">shortest_distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
+    <span class="n">shortest_distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">shortest_distances</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">])</span>
+
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="bp">False</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">current_node</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="bp">False</span> <span class="ow">in</span> <span class="n">visited</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">get_min_node</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">new_distance</span> <span class="o">=</span> <span class="n">shortest_distances</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span>
+            <span class="k">if</span> <span class="n">shortest_distances</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">new_distance</span><span class="p">:</span>
+                <span class="n">shortest_distances</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
+
+        <span class="n">visited</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="n">shortest_distances</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--graph1--&#34;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">graph1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span></p>
-<p><span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span></p>
-<p><span class="k">print</span><span class="p">(</span><span class="s2">&quot;&ndash;graph2&ndash;&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;---------------------&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--graph2--&#34;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">graph2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span></code></pre></td></tr></table></p>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;---------------------&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span></code></pre></td></tr></table>
 </div>
 </div>
 <br>
 <p>실행 결과</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="flex justify-center">
 <figure class="gdoc-markdown__figure">
     <a class="gdoc-markdown__link--raw" href="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/6b2d307a-d1d3-4823-abcc-531a73bd25af.png">
@@ -993,12 +1024,16 @@
             <img src="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/6b2d307a-d1d3-4823-abcc-531a73bd25af_hu6b5be34c6df882bd3e6d47a08c024378_62265_1800x0_resize_box_2.png" alt="" />
         </picture>
     </a>
+    
 </figure>
 </div>
 
-  </div>
-</div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
     </article>
