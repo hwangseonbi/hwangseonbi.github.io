@@ -54,18 +54,22 @@ jobs:
           name: content
           path: content/
       
-      - name: Commit files
-        run: |
-          git config --local user.email "on91716@gmail.com"
-          git config --local user.name "hwangseonbi"
-          git add .
-          git commit -m "Auto commit from Git action(sync_from_notion.yml) : ${{ github.event.inputs.root_page_url }}" -a
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          commit_message: "Automatic commit from git action(sync_from_notion.yml) : ${{ github.event.inputs.root_page_url }}"
+          status_options: '--untracked-files=normal'
+#       - name: Commit files
+#         run: |
+#           git config --local user.email "on91716@gmail.com"
+#           git config --local user.name "hwangseonbi"
+#           git add .
+#           git commit -m "Auto commit from Git action(sync_from_notion.yml) : ${{ github.event.inputs.root_page_url }}" -a
+
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: ${{ github.ref }}
 
   hugo_build_and_deploy:
     needs: deploy_content
