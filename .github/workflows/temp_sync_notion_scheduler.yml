@@ -1,4 +1,4 @@
-name: Notion fetch event workflow
+name: temp_sync_notion_scheduler
 on:
   schedule:
     - cron: '0 0 * * *'
