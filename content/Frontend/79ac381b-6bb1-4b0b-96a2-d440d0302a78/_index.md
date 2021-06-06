@@ -1,5 +1,5 @@
 ---
-date: 2021-06-04 15:04:00
+date: 2021-06-05 13:45:00
 resources:
 - name: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
   src: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
@@ -31,7 +31,7 @@ resources:
 - name: 2ed0afb1-6233-4482-9e72-a43142319096.png
   src: 2ed0afb1-6233-4482-9e72-a43142319096.png
   title: ''
-title: '[HTML & CSS] Box모델에 대하여'
+title: CSS Box모델에 대하여
 weight: 0
 
 ---
