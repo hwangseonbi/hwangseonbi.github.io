@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>[HTML &amp; CSS] Box모델에 대하여 on @hwangseonbi</title>
+    <title>CSS Box모델에 대하여 on @hwangseonbi</title>
     <link>https://hwangseonbi.github.io/Frontend/79ac381b-6bb1-4b0b-96a2-d440d0302a78/</link>
-    <description>Recent content in [HTML &amp; CSS] Box모델에 대하여 on @hwangseonbi</description>
+    <description>Recent content in CSS Box모델에 대하여 on @hwangseonbi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Jun 2021 15:04:00 +0000</lastBuildDate><atom:link href="https://hwangseonbi.github.io/Frontend/79ac381b-6bb1-4b0b-96a2-d440d0302a78/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Jun 2021 13:45:00 +0000</lastBuildDate><atom:link href="https://hwangseonbi.github.io/Frontend/79ac381b-6bb1-4b0b-96a2-d440d0302a78/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
