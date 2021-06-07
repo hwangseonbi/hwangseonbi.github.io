@@ -1,5 +1,5 @@
 ---
-date: 2021-06-05 13:45:00
+date: 2021-06-06 07:38:00
 resources:
 - name: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
   src: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
@@ -31,21 +31,31 @@ resources:
 - name: 2ed0afb1-6233-4482-9e72-a43142319096.png
   src: 2ed0afb1-6233-4482-9e72-a43142319096.png
   title: ''
-title: CSS Box모델에 대하여
+title: CSS Box 모델에 대하여
 weight: 0
 
 ---
-나는 항상 크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들이 무섭게 느껴졌다ㅋㅋ
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [CSS Box 모델에 대하여](https://www.notion.so/hwangseonbi/CSS-Box-79ac381b6bb14b0b96a2d440d0302a78)***
+
+<br>
+
+
+
+<br>
+
+
+
+{{< toc >}}
+
+<br>
+
+
+
+크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들
 
 {{< img name="3f158742-e8fc-4f14-abe3-6e6c67376745.png" size="small" width="432" lazy=false >}}
 
-블로그 글을 봐서도 잘 이해가 안갔었다. 도대체 무엇을 의미하는가... 🥵
-
-강의를 듣다가 이것에 대한 내용이 나왔는데 이렇게 쉬운 내용이었다니 무릎을 탁 치며 정리해본다.
-
----
-
-{{< toc >}}
+항상 궁금했었다. 도대체 무엇을 의미하는가... 🥵
 
 ---
 
@@ -79,33 +89,13 @@ solid값을 줘보자. 그러면 사각형 테두리에 3px(기본값)짜리 경
 
 중요한 것은 전체적인 div의 크기는 커졌지만 알맹이 사각형의 크기는 그대로인 상태에서 border의 픽셀수만 추가되었다는 것이다.
 
-<br>
-
-
-
 {{< img name="1729ca93-e6c3-4380-b9a5-a49cdefac322.png" size="large" width="1552" lazy=false >}}
 
 <br>
 
 
 
-<br>
-
-
-
-<br>
-
-
-
-<br>
-
-
-
 border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물론 0px로 설정하면 border는 사라지게 된다.
-
-<br>
-
-
 
 {{< img name="fdb20279-ab8c-4b65-b31f-40a235c5bb04.png" size="large" width="1554" lazy=false >}}
 
@@ -121,45 +111,15 @@ border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물
 
 이제 div 사각형 내부에 다른 요소가 들어있다고 해보자.
 
-<br>
-
-
-
 {{< img name="fd00bc82-0cf3-4ffe-ac3e-7b0028e67c46.png" size="large" width="1548" lazy=false >}}
 
 <br>
 
 
 
-<br>
-
-
-
-<br>
-
-
-
-이때 글자들이 너무 왼쪽에 붙어있어 조금 여유를 두고싶을 때가 있다.
-
-<br>
-
-
-
-이럴 때 사용하는 것이 padding이다.
-
-<br>
-
-
+이때 글자들이 너무 왼쪽에 붙어있어 조금 여유를 두고싶을 때가 있다. 이럴 때 사용하는 것이 padding이다.
 
 {{< img name="651d79de-66cf-449d-aa74-12b751f2e4ef.png" size="small" width="240" lazy=false >}}
-
-<br>
-
-
-
-<br>
-
-
 
 <br>
 
@@ -170,6 +130,10 @@ border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물
 반대로 외부요소와 외부요소 사이의 간격을 벌리고 싶을때 사용하는 것이 margin이다.
 
 {{< img name="6518c4d5-1909-46d6-950e-c2a271d1f8b2.png" size="small" width="384" lazy=false >}}
+
+<br>
+
+
 
 다음 예시를 보자.  &lt;div&gt;태그 안에 &lt;h1&gt;태그와 &lt;p&gt;태그가 포함되어있는 단순한 html이다.
 
@@ -185,27 +149,11 @@ border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물
 
 
 
-<br>
-
-
-
 # 5. 직접 계산해보기
 
 컨텐츠의 영역을 직접 계산하여 아래와 같이 꼭지점을 잇는 사각형을 만들어보면 박스모델을 제대로 이해할 수 있다. 
 
-<br>
-
-
-
-<br>
-
-
-
 {{< img name="f5fd6442-da0b-4839-9f2b-274c472ce6b2.png" size="small" width="288" lazy=false >}}
-
-<br>
-
-
 
 {{< highlight HTML "linenos=table" >}}
 <div class="container1">
@@ -268,7 +216,7 @@ border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물
 
 
 
-{{< expand "▼ ℹ️ 전역 속성 설정 이유">}}
+{{< expand "▼ 전역 속성 설정 이유">}}
 
 과제를 하다보면 이렇게 margin값을 주지 않았음에도 사각형 주위에 빈공간이 생긴다.
 

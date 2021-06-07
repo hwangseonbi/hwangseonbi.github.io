@@ -1,5 +1,5 @@
 ---
-date: 2021-06-05 13:52:00
+date: 2021-06-06 06:26:00
 resources:
 - name: 758f423b-1ee9-45e4-aba3-42af4200431e.png
   src: 758f423b-1ee9-45e4-aba3-42af4200431e.png
@@ -13,11 +13,11 @@ resources:
 - name: 6b2d307a-d1d3-4823-abcc-531a73bd25af.png
   src: 6b2d307a-d1d3-4823-abcc-531a73bd25af.png
   title: ''
-title: 다익스트라 최단거리 알고리즘
+title: 다익스트라 최단거리 알고리즘에 대하여
 weight: 0
 
 ---
-> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [느낌으로 이해하는 다익스트라 최단거리 알고리즘](https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5)***
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [다익스트라 최단거리 알고리즘에 대하여](https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5)***
 
 <br>
 
