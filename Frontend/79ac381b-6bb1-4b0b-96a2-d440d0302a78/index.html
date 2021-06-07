@@ -10,14 +10,15 @@
 
 
 
-    <meta name="description" content="나는 항상 크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들이 무섭게 느껴졌다ㅋㅋ
-     블로그 글을 봐서도 잘 이해가 안갔었다. 도대체 무엇을 의미하는가&hellip; 🥵
-강의를 듣다가 이것에 대한 내용이 나왔는데 이렇게 쉬운 내용이었다니 무릎을 탁 치며 정리해본다.
-  1. &lt;div&gt;로 박스먼저 만들기 2. boder 속성 살펴보기 3. 사각형 내부에 다른 요소가 들어있다면? 4. 그러면 외부 요소와 간격을 벌리고 싶을 땐? 5. 직접 계산해보기    1.">
+    <meta name="description" content="이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.
+Notion 페이지에 최적화되어있습니다. → CSS Box 모델에 대하여
+  1. &lt;div&gt;로 박스먼저 만들기 2. boder 속성 살펴보기 3. 사각형 내부에 다른 요소가 들어있다면? 4. 그러면 외부 요소와 간격을 벌리고 싶을 땐? 5. 직접 계산해보기   크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들
+     항상 궁금했었다. 도대체 무엇을 의미하는가&hellip; 🥵
+ 1. &lt;div&gt;로 박스먼저 만들기    padding이 뭔지 margin이 뭔지 정의 부터 보기전에 &lt;div&gt;태그로 사각형을 먼저 만들어보자.">
 
 
 
-    <title>CSS Box모델에 대하여 | @hwangseonbi</title>
+    <title>CSS Box 모델에 대하여 | @hwangseonbi</title>
 
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -149,7 +150,7 @@
             
                 <span class="flex">
                     <a href="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/" class="gdoc-nav__entry ">
-                        다익스트라 최단거리 알고리즘
+                        다익스트라 최단거리 알고리즘에 대하여
                     </a>
                 </span>
             
@@ -179,10 +180,51 @@
 
             <li>
             
+            <input type="checkbox" id="navtree-0d237bba" class="gdoc-nav__toggle" >
+            <label for="navtree-0d237bba" class="flex justify-between">
+            
             
                 <span class="flex">Database</span>
             
             
+                <svg class="icon gdoc_keyborad_arrow_left"><use xlink:href="#gdoc_keyborad_arrow_left"></use></svg>
+                <svg class="icon gdoc_keyborad_arrow_down hidden"><use xlink:href="#gdoc_keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/Database/a065dad7-357d-46d5-8752-331522d142d7/" class="gdoc-nav__entry ">
+                        [기초] 1. ACID에 대하여
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
 
             
             </li>
@@ -297,7 +339,7 @@
             
                 <span class="flex">
                     <a href="/Frontend/79ac381b-6bb1-4b0b-96a2-d440d0302a78/" class="gdoc-nav__entry is-active">
-                        CSS Box모델에 대하여
+                        CSS Box 모델에 대하여
                     </a>
                 </span>
             
@@ -414,7 +456,7 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Frontend/' href='/Frontend/'><span itemprop='name'>Frontend</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>CSS Box모델에 대하여</span><meta itemprop='position' content='3' /></li>
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Frontend/' href='/Frontend/'><span itemprop='name'>Frontend</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>CSS Box 모델에 대하여</span><meta itemprop='position' content='3' /></li>
     
 
     
@@ -428,8 +470,28 @@
 </div>
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>CSS Box모델에 대하여</h1>
-        <p>나는 항상 크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들이 무섭게 느껴졌다ㅋㅋ</p>
+        <h1>CSS Box 모델에 대하여</h1>
+        <blockquote>
+<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="https://www.notion.so/hwangseonbi/CSS-Box-79ac381b6bb14b0b96a2d440d0302a78">CSS Box 모델에 대하여</a></strong></em></p>
+</blockquote>
+<br>
+<br>
+
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-ltdivgt로-박스먼저-만들기">1. &lt;div&gt;로 박스먼저 만들기</a></li>
+    <li><a href="#2-boder-속성-살펴보기">2. boder 속성 살펴보기</a></li>
+    <li><a href="#3-사각형-내부에-다른-요소가-들어있다면">3. 사각형 내부에 다른 요소가 들어있다면?</a></li>
+    <li><a href="#4-그러면-외부-요소와-간격을-벌리고-싶을-땐">4. 그러면 외부 요소와 간격을 벌리고 싶을 땐?</a></li>
+    <li><a href="#5-직접-계산해보기">5. 직접 계산해보기</a></li>
+  </ul>
+</nav><hr></div>
+
+
+<br>
+<p>크롬의 개발자도구 탭에서 요소를 검사할 때마다 나타나는 저 박스들</p>
 
 
 
@@ -458,23 +520,7 @@
 </div>
 
 
-<p>블로그 글을 봐서도 잘 이해가 안갔었다. 도대체 무엇을 의미하는가&hellip; 🥵</p>
-<p>강의를 듣다가 이것에 대한 내용이 나왔는데 이렇게 쉬운 내용이었다니 무릎을 탁 치며 정리해본다.</p>
-<hr>
-
-
-
-  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-ltdivgt로-박스먼저-만들기">1. &lt;div&gt;로 박스먼저 만들기</a></li>
-    <li><a href="#2-boder-속성-살펴보기">2. boder 속성 살펴보기</a></li>
-    <li><a href="#3-사각형-내부에-다른-요소가-들어있다면">3. 사각형 내부에 다른 요소가 들어있다면?</a></li>
-    <li><a href="#4-그러면-외부-요소와-간격을-벌리고-싶을-땐">4. 그러면 외부 요소와 간격을 벌리고 싶을 땐?</a></li>
-    <li><a href="#5-직접-계산해보기">5. 직접 계산해보기</a></li>
-  </ul>
-</nav><hr></div>
-
-
+<p>항상 궁금했었다. 도대체 무엇을 의미하는가&hellip; 🥵</p>
 <hr>
 <div class="gdoc-page__anchorwrap">
     <h1 id="1-ltdivgt로-박스먼저-만들기">
@@ -527,7 +573,6 @@
 </div><p>두번째로 볼 속성은 border이다. border 속성의 기본값은 none이라서 별도의 속성값을 주지 않으면 위에서 보았던 것처럼 경계선은 보이지 않게된다.</p>
 <p>solid값을 줘보자. 그러면 사각형 테두리에 3px(기본값)짜리 경계선이 둘러쌓인다.</p>
 <p>중요한 것은 전체적인 div의 크기는 커졌지만 알맹이 사각형의 크기는 그대로인 상태에서 border의 픽셀수만 추가되었다는 것이다.</p>
-<br>
 
 
 
@@ -557,11 +602,7 @@
 
 
 <br>
-<br>
-<br>
-<br>
 <p>border-width 속성값을 많이주면 더 극명하게 차이가 보인다. 물론 0px로 설정하면 border는 사라지게 된다.</p>
-<br>
 
 
 
@@ -600,7 +641,6 @@
         </a>
     </h1>
 </div><p>이제 div 사각형 내부에 다른 요소가 들어있다고 해보자.</p>
-<br>
 
 
 
@@ -630,12 +670,7 @@
 
 
 <br>
-<br>
-<br>
-<p>이때 글자들이 너무 왼쪽에 붙어있어 조금 여유를 두고싶을 때가 있다.</p>
-<br>
-<p>이럴 때 사용하는 것이 padding이다.</p>
-<br>
+<p>이때 글자들이 너무 왼쪽에 붙어있어 조금 여유를 두고싶을 때가 있다. 이럴 때 사용하는 것이 padding이다.</p>
 
 
 
@@ -664,8 +699,6 @@
 </div>
 
 
-<br>
-<br>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="4-그러면-외부-요소와-간격을-벌리고-싶을-땐">
@@ -703,6 +736,7 @@
 </div>
 
 
+<br>
 <p>다음 예시를 보자.  &lt;div&gt;태그 안에 &lt;h1&gt;태그와 &lt;p&gt;태그가 포함되어있는 단순한 html이다.</p>
 
 
@@ -735,7 +769,6 @@
 <br>
 <p>개발자 도구에서 보면 &lt;p&gt;태그에 margin이 들어간 것을 볼 수 있다. 이 값 때문에 &lt;p&gt;태그 위에있는 &lt;h1&gt;태그와 공간이 벌어져있는 것을 볼 수 있다. 주황색으로 표시된 부분</p>
 <br>
-<br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="5-직접-계산해보기">
         5. 직접 계산해보기
@@ -744,8 +777,6 @@
         </a>
     </h1>
 </div><p>컨텐츠의 영역을 직접 계산하여 아래와 같이 꼭지점을 잇는 사각형을 만들어보면 박스모델을 제대로 이해할 수 있다.</p>
-<br>
-<br>
 
 
 
@@ -774,7 +805,6 @@
 </div>
 
 
-<br>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -869,7 +899,7 @@
 
 <div class="gdoc-expand">
   <label class="gdoc-expand__head flex justify-between" for="2e3f8d7e-12">
-    <span>▼ ℹ️ 전역 속성 설정 이유</span>
+    <span>▼ 전역 속성 설정 이유</span>
     <span>↕</span>
   </label>
   <input id="2e3f8d7e-12" type="checkbox" class="gdoc-expand__control hidden" />

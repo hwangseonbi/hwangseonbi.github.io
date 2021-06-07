@@ -11,13 +11,14 @@
 
 
     <meta name="description" content="이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.
-Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 다익스트라 최단거리 알고리즘
+Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거리 알고리즘에 대하여
   1. 다익스트라 알고리즘 2. 아이디어 3. 알고리즘 4. 일반화 5. 구현 6. 전체 통합 소스 및 실행 결과    1. 다익스트라 알고리즘    다익스트라 알고리즘이 이해와 납득이 가지않아 며칠동안 앓았다. 블로그 몇개를 훑어보아서는 이해하기가 힘들었다
-(저 같이 집중안하고 대충 공부해보려다가는 시간만 날립니다. 한번 볼때 집중해서 흐름 따라가세요)">
+(저 같이 집중안하고 대충 공부해보려다가는 시간만 날립니다. 한번 볼때 집중해서 흐름 따라가세요)
+나같은 사람을 위해 수학적으로 이 명제가 참이라는 것을 증명하기보다는 경험적으로 이해한 알고리즘의 흐름을 알아본다.">
 
 
 
-    <title>다익스트라 최단거리 알고리즘 | @hwangseonbi</title>
+    <title>다익스트라 최단거리 알고리즘에 대하여 | @hwangseonbi</title>
 
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -149,7 +150,7 @@ Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 �
             
                 <span class="flex">
                     <a href="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/" class="gdoc-nav__entry is-active">
-                        다익스트라 최단거리 알고리즘
+                        다익스트라 최단거리 알고리즘에 대하여
                     </a>
                 </span>
             
@@ -179,10 +180,51 @@ Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 �
 
             <li>
             
+            <input type="checkbox" id="navtree-0d237bba" class="gdoc-nav__toggle" >
+            <label for="navtree-0d237bba" class="flex justify-between">
+            
             
                 <span class="flex">Database</span>
             
             
+                <svg class="icon gdoc_keyborad_arrow_left"><use xlink:href="#gdoc_keyborad_arrow_left"></use></svg>
+                <svg class="icon gdoc_keyborad_arrow_down hidden"><use xlink:href="#gdoc_keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/Database/a065dad7-357d-46d5-8752-331522d142d7/" class="gdoc-nav__entry ">
+                        [기초] 1. ACID에 대하여
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
 
             
             </li>
@@ -297,7 +339,7 @@ Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 �
             
                 <span class="flex">
                     <a href="/Frontend/79ac381b-6bb1-4b0b-96a2-d440d0302a78/" class="gdoc-nav__entry ">
-                        CSS Box모델에 대하여
+                        CSS Box 모델에 대하여
                     </a>
                 </span>
             
@@ -414,7 +456,7 @@ Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 �
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Algorithm/' href='/Algorithm/'><span itemprop='name'>Algorithm</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>다익스트라 최단거리 알고리즘</span><meta itemprop='position' content='3' /></li>
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Algorithm/' href='/Algorithm/'><span itemprop='name'>Algorithm</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>다익스트라 최단거리 알고리즘에 대하여</span><meta itemprop='position' content='3' /></li>
     
 
     
@@ -428,9 +470,9 @@ Notion 페이지에 최적화되어있습니다. → 느낌으로 이해하는 �
 </div>
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>다익스트라 최단거리 알고리즘</h1>
+        <h1>다익스트라 최단거리 알고리즘에 대하여</h1>
         <blockquote>
-<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5">느낌으로 이해하는 다익스트라 최단거리 알고리즘</a></strong></em></p>
+<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="https://www.notion.so/hwangseonbi/6deb1329a0df4511b16eead4ac2248a5">다익스트라 최단거리 알고리즘에 대하여</a></strong></em></p>
 </blockquote>
 <br>
 
