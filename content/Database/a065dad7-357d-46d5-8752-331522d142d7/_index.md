@@ -1,5 +1,5 @@
 ---
-date: 2021-06-06 06:14:00
+date: 2021-06-07 08:50:00
 resources:
 - name: 74072297-96fe-4097-ab35-9a6aa8420a46.png
   src: 74072297-96fe-4097-ab35-9a6aa8420a46.png
@@ -193,7 +193,7 @@ Transaction 내 각각의 쿼리는 다른 Transaction의 Commit완료된 결과
 
 ### __Repeatable Read__
 
-Transaction 중간중간 Update Undo 상태를 백업해둠으로써 서로 다른 트랜잭션 사이에 업데이트 영향을 받지 않게한다. [→ 자세히 - REPEATABLE READ](https://nesoy.github.io/articles/2019-05/Database-Transaction-isolation)
+Transaction 중간중간 Update Undo 상태를 백업해둠으로써 서로 다른 트랜잭션 사이에 업데이트 영향을 받지 않게한다. [→ 자세히](https://nesoy.github.io/articles/2019-05/Database-Transaction-isolation)
 
 - 발생가능한 Read Phenomena : Phantom read
 
