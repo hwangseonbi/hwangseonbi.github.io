@@ -10,11 +10,12 @@
 
 
 
-    <meta name="description" content="@hwangseonbi">
+    <meta name="description" content="그 동안 Python을 사용하면서 궁금했던 몇가지 의문들에 대한 답을 채워본다.
+  1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가? 2. 파이썬은 언제, 왜, 어떤 것보다 느린가? 3. 파이썬을 선택하는 이유는 무엇인가? 4. &lsquo;파이썬 내부는 C로 돈다&rsquo; ? 5. CPython, Jython ? 6. 파이썬 내부 동작 Reference   1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가?    파이썬은 스크립트 언어다. 스크립트 언어의 여러 특성 중 하나는 인터프리터 가 한줄씩 실행시켜 준다는 것이다.">
 
 
 
-    <title>Posts | @hwangseonbi</title>
+    <title>파이썬에 대한 몇가지 의문들 | @hwangseonbi</title>
 
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -35,7 +36,7 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/index.xml" title="@hwangseonbi" />
+<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/index.xml" title="@hwangseonbi" />
 
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
@@ -356,7 +357,7 @@
             
             
                 <span class="flex">
-                    <a href="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/" class="gdoc-nav__entry ">
+                    <a href="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/" class="gdoc-nav__entry is-active">
                         파이썬에 대한 몇가지 의문들
                     </a>
                 </span>
@@ -472,7 +473,15 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Posts</span><meta itemprop='position' content='2' /></li>
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Posts/' href='/Posts/'><span itemprop='name'>Posts</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>파이썬에 대한 몇가지 의문들</span><meta itemprop='position' content='3' /></li>
+    
+
     
 
     
@@ -484,8 +493,226 @@
 </div>
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>Posts</h1>
-        
+        <h1>파이썬에 대한 몇가지 의문들</h1>
+        <blockquote>
+<p><em><strong>그 동안 Python을 사용하면서 궁금했던 몇가지 의문들에 대한 답을 채워본다.</strong></em></p>
+</blockquote>
+<br>
+
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-파이썬의-실행방식은-c언어-계열과-어떻게-다른가">1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가?</a></li>
+    <li><a href="#2-파이썬은-언제-왜-어떤-것보다-느린가">2. 파이썬은 언제, 왜, 어떤 것보다 느린가?</a></li>
+    <li><a href="#3-파이썬을-선택하는-이유는-무엇인가">3. 파이썬을 선택하는 이유는 무엇인가?</a></li>
+    <li><a href="#4-파이썬-내부는-c로-돈다-">4. &lsquo;파이썬 내부는 C로 돈다&rsquo; ?</a></li>
+    <li><a href="#5-cpython-jython-">5. CPython, Jython ?</a></li>
+    <li><a href="#6-파이썬-내부-동작">6. 파이썬 내부 동작</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav><hr></div>
+
+
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="1-파이썬의-실행방식은-c언어-계열과-어떻게-다른가">
+        1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#1-파이썬의-실행방식은-c언어-계열과-어떻게-다른가" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가?" href="#1-%ed%8c%8c%ec%9d%b4%ec%8d%ac%ec%9d%98-%ec%8b%a4%ed%96%89%eb%b0%a9%ec%8b%9d%ec%9d%80-c%ec%96%b8%ec%96%b4-%ea%b3%84%ec%97%b4%ea%b3%bc-%ec%96%b4%eb%96%bb%ea%b2%8c-%eb%8b%a4%eb%a5%b8%ea%b0%80">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>파이썬은 스크립트 언어다. 스크립트 언어의 여러 특성 중 하나는 <strong><code>인터프리터</code></strong> 가 한줄씩 실행시켜 준다는 것이다. (이 때문에 대화형언어라고 한다.) 사용자는 파이썬 코드를 만들고 실행을 시키면 먼저 <strong><code>바이트코드</code></strong> 가 만들어진다. 이렇게 바이트코드가 만들어지는 과정을 파이썬에서의 컴파일이라 부른다. 그리고나서 <code>인터프리터</code>가 바이트코드를 한줄씩 읽고 실행시킨다.</p>
+<p>컴파일언어에서의 컴파일을 알고있다면 느꼈을 것이다. 파이썬에서의 컴파일은 C언어의 컴파일과 다르다. 파이썬에서 바이트코드까지 컴파일되었다면 C언어는 <code>바이너리코드</code>까지 완전 컴파일된다. 또한 최종적으로 링크라는 과정을 거쳐 해당 플랫폼에서 실행할 수 있는 <code>실행파일</code>까지 생성된다. 이 실행파일은 인터프리터 같은 중간다리없이 CPU에서 바로 실행된다.</p>
+<br>
+<pre><code>💡C코드 동작 방식
+C언어 코드를 빌드과정을 다시 살펴보자.
+- 먼저 `컴파일러`가 C언어를 `어셈블리어`로 변환해 준다.
+- `어셈블러`가 어셈블리어를 `바이너리코드`로 바꿔준다. 어셈블리어는 CPU명령어이므로 CPU에 종속적이다.
+
+여기까지가 C언어 코드를 바이너리코드까지 변환하는 과정이고 이를 컴파일이라고한다. 이후에는 `링커`가 시스템 라이브러리 함수 주소와 연결(Dynamic Linking) 또는 라이브러리를 포함(Static Linking)한다. 그러면 우리가 말하는 실행파일이 완성된다.
+
+다음 슬라이드에 잘 나와있다. - [Programming Compile &amp; Loading for Korean](https://prezi.com/obkhqdxaz3zx/programming-compile-loading-for-korean/)
+</code></pre><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/c10a970b-bf0d-409b-bf98-3ce8d69e1677.png">
+        <picture>
+            <source srcset="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/c10a970b-bf0d-409b-bf98-3ce8d69e1677_hu1ef3a604bb5b948295739969a4382308_86782_1800x0_resize_box_2.png" />
+            <img src="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/c10a970b-bf0d-409b-bf98-3ce8d69e1677_hu1ef3a604bb5b948295739969a4382308_86782_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="2-파이썬은-언제-왜-어떤-것보다-느린가">
+        2. 파이썬은 언제, 왜, 어떤 것보다 느린가?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#2-파이썬은-언제-왜-어떤-것보다-느린가" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 2. 파이썬은 언제, 왜, 어떤 것보다 느린가?" href="#2-%ed%8c%8c%ec%9d%b4%ec%8d%ac%ec%9d%80-%ec%96%b8%ec%a0%9c-%ec%99%9c-%ec%96%b4%eb%96%a4-%ea%b2%83%eb%b3%b4%eb%8b%a4-%eb%8a%90%eb%a6%b0%ea%b0%80">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>위 1번 항목에서 파이썬의 동작방식은 <strong><code>인터프리터란 중간다리를 거쳐 실행된다</code></strong> 고 했다. 이것이 C, C++같은 완전컴파일 언어와의 차이점이다. 파이썬에서는 보통 빌드나 make같은 단계가 없다. 또한 파이썬의 바이트코드는 이진기계코드(intel or arm 칩 명령어)가 아니라 단순히 파이썬 고유 표현방식일 뿐이다.</p>
+<p>‌</p>
+<p>이것이 파이썬이 C, C++만큼 빠르지 않은 이유이다. 인터프리터(더 상세히는 PVM 루프. 6번 질문에서 조금 더 상세히 설명한다.)는 CPU 칩이 아니므로 여전히 바이트 코드를 머신코드로 해석해야하며, 바이트 코드 명령어들은 CPU 명령어보다 더 많은 작업을 해야한다. 다만 파이썬은 내부 컴파일 단계가 존재하므로 코드를 실행할 때마다 전통적인 인터프리터 언어와 같이 재분석, 재해석이 필요없어 전통적인 인터프리터 언어들보다는 빠르다.</p>
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="3-파이썬을-선택하는-이유는-무엇인가">
+        3. 파이썬을 선택하는 이유는 무엇인가?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#3-파이썬을-선택하는-이유는-무엇인가" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 3. 파이썬을 선택하는 이유는 무엇인가?" href="#3-%ed%8c%8c%ec%9d%b4%ec%8d%ac%ec%9d%84-%ec%84%a0%ed%83%9d%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0%eb%8a%94-%eb%ac%b4%ec%97%87%ec%9d%b8%ea%b0%80">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>그럼에도 파이썬을 사용하는 이유는 현대 컴퓨터 속도는 프로그램을 실행시키기에 충분히 빠르며 실행속도가 최적화되야하는 분야는 정해져있기 때문이다.</p>
+<p>다시말해 반드시 빨라야하는 분야가 아니라면 실행속도를 포기하고 파이썬으로 개발하였을 때 향상되는 <strong><code>개발 속도 면에서의 이득</code></strong> 이 더 크기 때문이다.</p>
+<p>‌</p>
+<p>또한 어느 정도의 속도 개선은 파이썬을 통해서도 해결 가능한 방법이 있다. 예를 들면 수치 연산 프로그래밍이라던가 애니메이션에서 핵심이 되는 방대한 수를 계산하는 컴포넌트에서 연산 속도가 나와야한다고 하자. 최적의 속도를 필요로하는 애플리케이션의 일부를 <strong><code>컴파일 확장으로 분리</code></strong> 하고, 이 확장을 파이썬 스크립트에서 사용하기 위해 그대의 시스템에 링크한다.</p>
+<p>‌</p>
+<p>이처럼 파이썬이 제어 언어로서의 역할을 하는 경우가 있다. NumPy 수치 연산 확장이 그 예이다. NumPy는 컴파일된 최적화된 수치 연산 확장 라이브러리를 파이썬 언어와 결합함으로써 효율적이고 사용하기 쉬운 수치 연산 프로그래밍 도구가 된다.</p>
+<p>‌</p>
+<p><strong><code>파이썬은 다른 언어와 함께 사용할 수 있다.</code></strong></p>
+<p>‌</p>
+<p>파이썬 프로그램은 다른 언어로 작성된 컴포넌트에 다양한 방법으로 쉽게 연결될 수 있다.</p>
+<p>‌</p>
+<p>예를 들어, 파이썬의 C API를 이용하면 C 프로그램에서 파이썬을 호출하거나 파이썬 프로그램에서 C 프로그램을 호출할 수 있다. 즉 필요하다면 C언어로 작성된 기능을 파이썬 시스템에 추가할 수 있고, 다른 환경이나 시스템에서 파이썬 프로그램을 이용할 수 있음을 의미한다.</p>
+<p>‌</p>
+<p>신속한 개발 속도를 위해 시스템을 먼저 파이썬으로 구현한 다음, 제품에 대한 성능 요구사항이 발생할 때 하나씩 C 코드로 옮겨 구현하는 개발 방법도 가능하다.</p>
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="4-파이썬-내부는-c로-돈다-">
+        4. &lsquo;파이썬 내부는 C로 돈다&rsquo; ?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#4-파이썬-내부는-c로-돈다-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 4. &lsquo;파이썬 내부는 C로 돈다&rsquo; ?" href="#4-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%82%b4%eb%b6%80%eb%8a%94-c%eb%a1%9c-%eb%8f%88%eb%8b%a4-">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>먼저 &ldquo;파이썬 내부&quot;가 무엇인지 정확히 정의하자. 파이썬은 프로그래밍 언어를 의미할 수도 있고 인터프리터라고 불리는 소프트웨어 패키지를 의미할 수도 있다. 사용자가 파이썬 코드를 작성하면 인터프리터는 코드를 읽고 코드에 해당하는 명령을 수행한다.</p>
+<p><code>이때 인터프리터가 C로 구현되거나 자바로 구현되는 등 다양한 방법으로 만들어질 수 있다.</code></p>
+<p>우리가 표준으로 사용하고 있는 파이썬 인터프리터가 C로 만들어진 CPython을 사용하기 때문에 파이썬 내부가 C로 돌아간다고 말할 수 있는 지점이다.</p>
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="5-cpython-jython-">
+        5. CPython, Jython ?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#5-cpython-jython-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5. CPython, Jython ?" href="#5-cpython-jython-">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>인터프리터의 종류이다. 위 4번 내용을 읽었다면 눈치챘겠지만 Jython이란 Java로 만들어진 인터프리터이다. 6. 파이썬 내부동작에서 더 자세하게 다룬다.</p>
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="6-파이썬-내부-동작">
+        6. 파이썬 내부 동작
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#6-파이썬-내부-동작" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 6. 파이썬 내부 동작" href="#6-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%82%b4%eb%b6%80-%eb%8f%99%ec%9e%91">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>사용자가 스크립트를 작성하면 인터프리터는 그 코드를 읽고 실행시킨다. 이때 인터프리터는 내부적으로 많은 일을 한다. 사용자가 스크립트 파일을 파이썬에게 실행하도록 명령했을 때, 다음 단계가 수행된다.</p>
+<p>‌</p>
+<ol>
+<li>바이트코드(.pyc)라고 불리는 상태로 스크립트 파일을 컴파일한다.</li>
+</ol>
+<ul>
+<li>
+<p>바이트코드는 소스코드에 대한 저수준, 플랫폼 독립적인 표현이며 컴파일을 통해 소스코드의 statement는 개별적인 단계로 분해되서 바이트 코드로 그룹화된다. 이때 파이썬 프로그램의 종류(인터프리터의 종류)에 따라 바이트코드는 다를 수 있다.</p>
+</li>
+<li>
+<p>그러니까 이 바이트코드만 있으면 어느 플랫폼에 가서도 실행 가능하다. 물론 해당 플랫폼에 파이썬 인터프리터가 설치되어있긴 해야한다. 컴파일된 인터프리터 종류도 같아야한다. Cython으로 컴파일한 파이트코드는 Jython으로 실행할 수 없다.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/7d4c612d-f29e-44c7-acc4-60556bf7815b.png">
+        <picture>
+            <source srcset="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/7d4c612d-f29e-44c7-acc4-60556bf7815b_hu78fb3ab728f5330e484bef82c5590aee_132953_1800x0_resize_box_2.png" />
+            <img src="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/7d4c612d-f29e-44c7-acc4-60556bf7815b_hu78fb3ab728f5330e484bef82c5590aee_132953_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<ol start="2">
+<li>바이트코드는 파이썬 가상머신(PVM)이라고 불리는 곳에 전달된다.</li>
+</ol>
+<ul>
+<li><strong><code>PVM</code></strong> 이란 Python Virutal machine이란 뜻이며 <strong><code>바이트코드 명령을 차례로 반복</code></strong> 시키는 단순히 큰 루프이며 <strong><code>파이썬의 런티임 엔진</code></strong> 이다. 이 단계가 사실상 마지막 인터프리터 단계이다.‌</li>
+</ul>
+<br>
+<p>그런데 이러한 점들은 사용자에게 공개되지 않는다. 그럼으로써 사용자는 그저 파이썬 코드를 짜는데 집중할 수 있다. 사용자는 코드를 짜고 실행시키기만하면 된다.</p>
+<p>‌</p>
+<p>이런 일련의 과정들을 통틀어서 <strong><code>실행모델</code></strong> 이라고 한다. 인터프리터가 일하는 방식정도로 생각하면 된다. 실행모델은 위와같은 방식이 표준이지만 <strong><code>사용 용도에 따라 변형될 수 있다.</code></strong>  이러한 변형된 실행 모델들의 예가 CPython, Jython, IronPython, Stackless, PyPy 등 이다. 이들은 같은 파이썬 언어를 구현하지만 각기 다른 방식으로 프로그램을 실행한다. 즉 하나의 파이썬 소스를 각기 다른 방법으로 실행시킨다. Cython, Shed Skin 등의 모델도 있지만 이것들은 표준 파이썬 언어를 구현하지 않기 때문에 최적화 도구로서 볼수도 있다.  우리가 흔히 쓰는 파이썬 실행모델이며 표준인 모델은 CPython이다. CPython부터 시작해 몇가지 주요 실행모델을 정리해보았다.</p>
+<p>‌</p>
+<ul>
+<li>
+<p>CPython : 일반적으로 말하는 Python이다(표준). 이식성을 고려해 ANSI C언어로 구현되었다는 사실에서 CPython이란 이름이 붙었다.</p>
+</li>
+<li>
+<p>Jython : 자바를 위한 파이썬이다. 자바 프로그래밍 언어와의 통합을 목적으로 한 파이썬 언어의 다른 구현이다. Jython은 파이썬 소스 코드를 자바 바이트 코드로 컴파일하고 생성된 바이트코드를 JVM으로 전달하는 자바 클래스로 구성되어있다. 개발자는 여전히 .py파일로 소스를 저장하고 Jython 시스템으로 실행시키면된다. 즉 파이썬 코드로 자바 애플리케이션 작성을 가능하게 한다. 런타임 시에는 실제 자바 애플리케이션처럼 보인다. CPython보다는 느리고 안정성이 떨어진다.</p>
+</li>
+<li>
+<p>IronPython : .NET을 위한 파이썬. Jython과 매우 유사하다.</p>
+</li>
+<li>
+<p>Stackless : 동시성을 위한 파이썬. Concurrency를 지향하는 표준 CPython언어의 재구현이며 향상된 버전이다. C언어의 call stack에 상태를 저장하지 않기 때문에 파이썬을 스택이 작은 아키텍처에 쉽게 이식할 수 있도록 하고, 효율적인 멀티프로세스 옵션을 제공하며 corrutine을 구현할 수 있다. 특히 microthread는 파이썬의 표준 멀티태스킹 도구인 스레드와 프로세스보다 효율적이고 가볍다.</p>
+</li>
+<li>
+<p>PyPy: 속도를 위한 파이썬이다. 성능에 초점이 맞추어져 있다.</p>
+</li>
+</ul>
+<br>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="reference">
+        Reference
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/#reference" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Reference" href="#reference">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>Learning Python - Mark Lutz 저</p>
+<p><a class="gdoc-markdown__link" href="https://cjh5414.github.io/about-python-and-how-python-works/">https://cjh5414.github.io/about-python-and-how-python-works/</a></p>
+<p><a class="gdoc-markdown__link" href="https://github.com/Jpub/LearningPython">https://github.com/Jpub/LearningPython</a></p>
+<br>
+<br>
+
 
     </article>
 

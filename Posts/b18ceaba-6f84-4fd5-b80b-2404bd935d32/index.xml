@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python에서 GIL이란? on @hwangseonbi</title>
+    <link>https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/</link>
+    <description>Recent content in Python에서 GIL이란? on @hwangseonbi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 30 Jun 2021 15:11:00 +0000</lastBuildDate><atom:link href="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

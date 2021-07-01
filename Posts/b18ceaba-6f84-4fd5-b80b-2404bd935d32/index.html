@@ -10,11 +10,14 @@
 
 
 
-    <meta name="description" content="@hwangseonbi">
+    <meta name="description" content="GIL이란?    
+GIL이 무엇인지 설명하기 전에 Python으로 멀티스레딩과 일반적인 경우의 시간을 비교해본다. 시스템환경은 아래와 같다.
+     아래 코드는 5억개의 배열에 랜덤값을 집어넣고 최대값을 찾는 작업을 하나의 스레드와 두개의 스레드일 때로 나누어 실행하고 시간을 측정한다.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29  import random import threading import time def working(): max([random.">
 
 
 
-    <title>Posts | @hwangseonbi</title>
+    <title>Python에서 GIL이란? | @hwangseonbi</title>
 
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -35,7 +38,7 @@
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/index.xml" title="@hwangseonbi" />
+<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/index.xml" title="@hwangseonbi" />
 
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
@@ -382,7 +385,7 @@
             
             
                 <span class="flex">
-                    <a href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/" class="gdoc-nav__entry ">
+                    <a href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/" class="gdoc-nav__entry is-active">
                         Python에서 GIL이란?
                     </a>
                 </span>
@@ -472,7 +475,15 @@
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Posts</span><meta itemprop='position' content='2' /></li>
+        
+        
+        
+        
+    
+    
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Posts/' href='/Posts/'><span itemprop='name'>Posts</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Python에서 GIL이란?</span><meta itemprop='position' content='3' /></li>
+    
+
     
 
     
@@ -484,8 +495,288 @@
 </div>
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>Posts</h1>
-        
+        <h1>Python에서 GIL이란?</h1>
+        <div class="gdoc-page__anchorwrap">
+    <h1 id="gil이란">
+        GIL이란?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/#gil이란" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor GIL이란?" href="#gil%ec%9d%b4%eb%9e%80">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><br>
+<p>GIL이 무엇인지 설명하기 전에 Python으로 멀티스레딩과 일반적인 경우의 시간을 비교해본다. 시스템환경은 아래와 같다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/ddf73190-2e53-405c-bd39-3d5dec372df1.png">
+        <picture>
+            <source srcset="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/ddf73190-2e53-405c-bd39-3d5dec372df1_huf0d3e5055217529b1633758f6b8e0968_13097_1800x0_resize_box_2.png" />
+            <img src="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/ddf73190-2e53-405c-bd39-3d5dec372df1_huf0d3e5055217529b1633758f6b8e0968_13097_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>아래 코드는 5억개의 배열에 랜덤값을 집어넣고 최대값을 찾는 작업을 하나의 스레드와 두개의 스레드일 때로 나누어 실행하고 시간을 측정한다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">working</span><span class="p">():</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000000</span><span class="p">)])</span>
+
+
+<span class="c1"># One Thread</span>
+<span class="n">s_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">working</span><span class="p">()</span>
+<span class="n">working</span><span class="p">()</span>
+<span class="n">e_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[One Thread] {e_time - s_time:.5f}&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Two Threads</span>
+<span class="n">s_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">working</span><span class="p">))</span>
+    <span class="n">threads</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="n">e_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[Two Thread] {e_time - s_time:.5f}&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<br>
+<p>당연히 멀티스레드일때 시간이 더 적게 걸렸을 것 같지만 실제로는 정반대의 결과다. 바로 GIL 때문이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/9217bc4e-550f-4988-9771-f573cbf7df95.png">
+        <picture>
+            <source srcset="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/9217bc4e-550f-4988-9771-f573cbf7df95_hu62b5848341ab5d9bd5a23c3effc0b19c_11062_600x0_resize_box_2.png" />
+            <img src="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/9217bc4e-550f-4988-9771-f573cbf7df95_hu62b5848341ab5d9bd5a23c3effc0b19c_11062_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>GIL(Global Interpreter Lock)은 간단히 말해 뮤텍스로, 하나의 쓰레드만이 파이썬 인터프리터를 컨트롤할 수 있게 해주는 락이다. 쉽게말해 파이썬(Cython)에서는 스레드가 여러개 만들어두어도 바이트코드를 실행시킬 수 있는 스레드는 단 하나여야하는 정책이 걸려있고 이러한 정책을 구현해주는 것이 GIL이다.</p>
+<br>
+<p>아래 그림에서 스레드는 세개지만 Lock이 걸리면서 동시간대에 바이트코드는 하나의 스레드만 실행할 수 있다. 물론 thread context switching까지 생각하면 싱글스레드보다 시간이 오래 걸리는 문제가 발생한다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/4e8598f5-e4e3-4012-a5fa-014b34a99a5d.png">
+        <picture>
+            <source srcset="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/4e8598f5-e4e3-4012-a5fa-014b34a99a5d_hu0663ebebd844e411fea153ca255e6dbb_229034_1800x0_resize_box_2.png" />
+            <img src="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/4e8598f5-e4e3-4012-a5fa-014b34a99a5d_hu0663ebebd844e411fea153ca255e6dbb_229034_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="그렇다면-파이썬은-왜-굳이-이러한-정책을-가지는-것일까">
+        그렇다면 파이썬은 왜 굳이 이러한 정책을 가지는 것일까?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/#그렇다면-파이썬은-왜-굳이-이러한-정책을-가지는-것일까" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 그렇다면 파이썬은 왜 굳이 이러한 정책을 가지는 것일까?" href="#%ea%b7%b8%eb%a0%87%eb%8b%a4%eb%a9%b4-%ed%8c%8c%ec%9d%b4%ec%8d%ac%ec%9d%80-%ec%99%9c-%ea%b5%b3%ec%9d%b4-%ec%9d%b4%eb%9f%ac%ed%95%9c-%ec%a0%95%ec%b1%85%ec%9d%84-%ea%b0%80%ec%a7%80%eb%8a%94-%ea%b2%83%ec%9d%bc%ea%b9%8c">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>Python은 Garbage Collection과 Reference Counting을 통해 할당된 메모리를 관리한다. 따라서 파이썬의 모든 객체는 reference count, 즉 해당 변수에 참조된 수를 저장하고 있다. 여기서 문제가 발생한다. 멀티스레드인 경우 여러 스레드가 하나의 객체를 사용한다면 reference count를 관리하기 위해서 모든 객체에 대한 lock이 필요하다. 이러한 비효율을 막기 위해서 Python에서는 GIL을 사용하게 되었다. 하나의 Lock을 통해서 모든 객체들에 대한 Reference Count의 동기화 문제를 해결했다.</p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="그렇다고-python의-멀티스레딩이-무조건-느린-것은-아니다">
+        그렇다고 Python의 멀티스레딩이 무조건 느린 것은 아니다.
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/#그렇다고-python의-멀티스레딩이-무조건-느린-것은-아니다" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 그렇다고 Python의 멀티스레딩이 무조건 느린 것은 아니다." href="#%ea%b7%b8%eb%a0%87%eb%8b%a4%ea%b3%a0-python%ec%9d%98-%eb%a9%80%ed%8b%b0%ec%8a%a4%eb%a0%88%eb%94%a9%ec%9d%b4-%eb%ac%b4%ec%a1%b0%ea%b1%b4-%eb%8a%90%eb%a6%b0-%ea%b2%83%ec%9d%80-%ec%95%84%eb%8b%88%eb%8b%a4">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div><p>아래 코드에서는 멀티스레드 동작이 더 빠르다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">working</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">max</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="c1"># One Thread</span>
+<span class="n">s_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">working</span><span class="p">()</span>
+<span class="n">working</span><span class="p">()</span>
+<span class="n">e_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{e_time - s_time:.5f}&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Two Threads</span>
+<span class="n">s_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">working</span><span class="p">))</span>
+    <span class="n">threads</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="n">e_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{e_time - s_time:.5f}&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>그 이유는 <code>sleep</code> 때문이다. 싱글스레드 작업에서는 sleep으로 인해 그대로 0.1초씩 쉬게된다. 그러나 멀티스레드에서는 sleep으로 멈춘 경우 다른 스레드로 context switching을 하기때문에 효율이 개선된다. 즉 하나의 스레드에서 sleep으로 멈추었을 때 다른 스레드가 동작하는 것이다.</p>
+<p>여기서는 sleep으로 대기상황을 재연했지만 I/O작업이 많은 경우도 이와 동일한 상황으로 볼 수 있다. I/O작업이 길고 빈번하다면 멀티스레드로 수행하는 것이 더 빠르다는 일반적인 결론을 내릴 수 있다.</p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="reference">
+        Reference
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/#reference" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Reference" href="#reference">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><ul>
+<li><a class="gdoc-markdown__link" href="https://ssungkang.tistory.com/entry/python-GIL-Global-interpreter-Lock%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C">https://ssungkang.tistory.com/entry/python-GIL-Global-interpreter-Lock은-무엇일까</a></li>
+</ul>
+
 
     </article>
 

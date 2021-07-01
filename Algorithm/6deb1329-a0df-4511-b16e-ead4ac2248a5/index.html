@@ -12,9 +12,8 @@
 
     <meta name="description" content="이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.
 Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거리 알고리즘에 대하여
-  1. 다익스트라 알고리즘 2. 아이디어 3. 알고리즘 4. 일반화 5. 구현 6. 전체 통합 소스 및 실행 결과    1. 다익스트라 알고리즘    다익스트라 알고리즘이 이해와 납득이 가지않아 며칠동안 앓았다. 블로그 몇개를 훑어보아서는 이해하기가 힘들었다
-(저 같이 집중안하고 대충 공부해보려다가는 시간만 날립니다. 한번 볼때 집중해서 흐름 따라가세요)
-나같은 사람을 위해 수학적으로 이 명제가 참이라는 것을 증명하기보다는 경험적으로 이해한 알고리즘의 흐름을 알아본다.">
+  1. 다익스트라 알고리즘 2. 아이디어 3. 알고리즘 4. 일반화 5. 구현 6. 문제    1. 다익스트라 알고리즘    그래프들 간에 최단거리를 구할 수 있는 알고리즘이다.
+2. 아이디어    사실 다익스트라 알고리즘은 아래 그래프를 보고 최단거리를 구하려할때 나를 포함한 보통의 사람들이 떠올리는 생각의 순서와 비슷하다. 아래 그래프상에서, A에서 B까지의 최단거리를 생각해보자.">
 
 
 
@@ -328,10 +327,77 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 
             <li>
             
+            <input type="checkbox" id="navtree-bbb82e2c" class="gdoc-nav__toggle" >
+            <label for="navtree-bbb82e2c" class="flex justify-between">
+            
             
                 <span class="flex">Posts</span>
             
             
+                <svg class="icon gdoc_keyborad_arrow_left"><use xlink:href="#gdoc_keyborad_arrow_left"></use></svg>
+                <svg class="icon gdoc_keyborad_arrow_down hidden"><use xlink:href="#gdoc_keyborad_arrow_down"></use></svg>
+            </label>
+            
+
+            
+                
+    
+
+    <ul class="gdoc-nav__list">
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/Posts/3c3dba6f-8888-424b-a1a9-550cd213aee2/" class="gdoc-nav__entry ">
+                        파이썬에 대한 몇가지 의문들
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            <li>
+            
+            
+                <span class="flex">
+                    <a href="/Posts/b18ceaba-6f84-4fd5-b80b-2404bd935d32/" class="gdoc-nav__entry ">
+                        Python에서 GIL이란?
+                    </a>
+                </span>
+            
+            
+
+            
+            </li>
+            
+            
+        
+    </ul>
 
             
             </li>
@@ -444,7 +510,7 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
     <li><a href="#3-알고리즘">3. 알고리즘</a></li>
     <li><a href="#4-일반화">4. 일반화</a></li>
     <li><a href="#5-구현">5. 구현</a></li>
-    <li><a href="#6-전체-통합-소스-및-실행-결과">6. 전체 통합 소스 및 실행 결과</a></li>
+    <li><a href="#6-문제">6. 문제</a></li>
   </ul>
 </nav><hr></div>
 
@@ -457,9 +523,7 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><p>다익스트라 알고리즘이 이해와 납득이 가지않아 며칠동안 앓았다. 블로그 몇개를 훑어보아서는 이해하기가 힘들었다</p>
-<p><del>(저 같이 집중안하고 대충 공부해보려다가는 시간만 날립니다. 한번 볼때 집중해서 흐름 따라가세요)</del></p>
-<p>나같은 사람을 위해 수학적으로 이 명제가 참이라는 것을 증명하기보다는 경험적으로 이해한 알고리즘의 흐름을 알아본다.</p>
+</div><p>그래프들 간에 최단거리를 구할 수 있는 알고리즘이다.</p>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="2-아이디어">
@@ -468,8 +532,7 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><p>몇개의 그래프를 가지고 최단경로를 구하는 생각을해보면 경험적으로 사실이란 것을 알 수 있다.</p>
-<p>아래 그래프상에서, A에서 B까지의 최단거리를 생각해보자.</p>
+</div><p>사실 다익스트라 알고리즘은 아래 그래프를 보고 최단거리를 구하려할때 나를 포함한 보통의 사람들이 떠올리는 생각의 순서와 비슷하다. 아래 그래프상에서, A에서 B까지의 최단거리를 생각해보자.</p>
 
 
 
@@ -498,7 +561,6 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </div>
 
 
-<p>내 머리속에서는 아래와 같은 사고의 흐름이 펼쳐진다.</p>
 <ol>
 <li>
 <p>직접 연결된 곳 먼저 가보자        A→B : 100                                 얼라? 거리가 좀 커보이네?</p>
@@ -511,16 +573,13 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </li>
 </ol>
 <br>
+<p>여기서 주목할 포인트는 <strong>3번과정</strong>이다.</p>
 <br>
-<p>여기서 주목해야할 포인트는 <strong>3번과정</strong>이다.</p>
-<br>
-<p>3번 과정을 통해서 우리는 C보다 먼 지점(D 또는 E)를 갈때는 A→B가 아닌 A→C를 거쳐야 최소값이 될 것 같다는 생각이 든다. 실제로도 그렇다. 다익스트라 형님의 아이디어가 바로 이 지점인 것이다.</p>
-<br>
+<p>3번 과정을 통해서 우리는 D 또는 E지점으로 갈때 A→B가 아닌 A→C를 거쳐야 최소값이 될 것 같다는 생각이 든다. 즉 어떤 지점까지의 최단거리는 그 이전 지점들까지의 최단거리로 이루어진다는 아이디어다.</p>
 <pre><code>✅__다익스트라 알고리즘의 핵심__
 : 특정 지점에서 목표 지점까지의 최단 거리는 목표 지점과 인접한 지점까지의 최단 거리로 이루어진다.
 </code></pre><br>
-<p>E지점을 최단거리로 가려면 E와 인접한 노드인 B, C, D 중 한곳을 거쳐와야할 것이다.</p>
-<p>그렇다면 A→E 최단거리는 A→B의 최단거리 또는 A→C의 최단거리 또는 A→D의 최단거리를 통해서 얻을 수 있는 것이다.</p>
+<p>다시말해, E지점까지의 최단거리는 E와 인접한 노드인 B, C, D 중 한곳을 거쳐와야할 것이고, 그렇다면 A→E 최단거리는 A→B의 최단거리 또는 A→C의 최단거리 또는 A→D의 최단거리를 통해서 얻을 수 있는 것이다.</p>
 <br>
 <br>
 <div class="gdoc-page__anchorwrap">
@@ -530,10 +589,15 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><p>위 사고를 조금 더 체계화시킨 알고리즘 형태로 보자.</p>
+</div><p>위 사고를 조금 더 체계화시켜보자.</p>
 <br>
 <ol>
-<li>A를 시작노드로 설정한다. 현재노드는 A이다. A와 인접한 노드의 간선을 계산한다.</li>
+<li>
+<p>A를 시작노드로 설정한다.</p>
+</li>
+<li>
+<p>현재노드는 A이다. A와 인접한 노드의 간선을 계산한다.</p>
+</li>
 </ol>
 
 
@@ -565,13 +629,21 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 
 <p>A는 시작노드이며 자기 자신으로 가는 거리는 0이다. A에서 D나 E로 가는 거리는 아직 모른다.</p>
 <br>
-<ol start="2">
-<li>다음 방문할 노드를 선택한다. 선택하는 기준은 현재 노드 A와 연결된 노드 중, <strong>아직 방문하지 않은 노드이면서 가장 가까운 노드</strong>이다. A와 인접한 노드 중에서 가까운 곳은 C이다. C가 현재노드가 된다.</li>
-</ol>
-<br>
-<br>
 <ol start="3">
-<li>C노드는 D, E와 연결되어있다. 그리고 우리는 A에서 C까지의 거리를 알고 있다. 그러므로 지금까지 몰랐던 A에서 D,E의 거리를 알아낼 수 있다. 즉 C를 고려했을 때, A→D,E 최단거리를 구할 수 있다.</li>
+<li>다음 방문할 노드를 선택한다. 선택기준은 아래와 같다.</li>
+</ol>
+<ul>
+<li>
+<p><strong>아직 방문하지 않은 노드이면서</strong></p>
+</li>
+<li>
+<p><strong>가장 가까운 노드</strong></p>
+</li>
+</ul>
+<p>A와 인접한 노드 중에서 가까운 곳은 C이다.</p>
+<br>
+<ol start="4">
+<li>C노드는 D, E, B와 연결되어있다. 지금까지 구한 C까지의 최단거리(2)를 통해 몰랐던 D,E의 최단거리를 알아낼 수 있다. 어쩌면 지금까지 구한 B까지의 최단거리보다 C를 통해 B까지 가는 거리가 더 빠를 가능성도 있다.</li>
 </ol>
 
 
@@ -601,11 +673,11 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </div>
 
 
+<p>아쉽게도 C를 거친 B까지의 거리는 402으로 기존 최단거리보다 더 길다. 따라서 갱신하지 않는다.</p>
 <br>
-<ol start="4">
-<li>다시 C에서 연결된 노드 중, <strong>아직 방문하지 않은 노드이면서 가장 가까운 노드</strong>를 선택한다. 이번엔 D가 될 것이다.</li>
+<ol start="5">
+<li>현재까지 A, C노드를 방문하였다. 모든 노드를 방문할 때까지 3번 과정부터 다시 반복한다.</li>
 </ol>
-<p>이런 식으로 3번과정을 반복한다.</p>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="4-일반화">
@@ -629,12 +701,11 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 <p>해당 노드를 거쳐서 특정한 노드로 가는 경우를 고려하여 최소 비용 갱신</p>
 </li>
 <li>
-<p>위 과정에서 3번 ~ 4번을 반복</p>
+<p>모든 노드를 방문완료할 때까지 3번 ~ 4번을 반복</p>
 </li>
 </ol>
-<pre><code>⚠️[미리알림]
-코드 구현 시, 3번 과정에서 비용이 가장 적은 노드를 선택할 때 그냥 배열을 돌면서 찾을 수도 있다.
-하지만 우선순위 큐로 구현한다면 더 빠르게 선택할 수 있다.
+<pre><code>⚠️코드 구현 시, 3번 과정에서 비용이 가장 적은 노드를 선택할 때 배열을 돌면서 찾을 수도 있다.
+하지만 우선순위 큐로 구현한다면 더 빠르게 찾을 수 있다.
 </code></pre><br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="5-구현">
@@ -643,35 +714,18 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><p>그래프가 아래와 같이 주어졌을 때</p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">graph1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
-    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">graph2</span> <span class="o">=</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">graph</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
     <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
@@ -681,53 +735,6 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </div>
 </div>
 <br>
-<p>다음 노드를 선택하는 방식을 heapq로 사용하면 알고리즘은 아래와 같다.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">heapq</span>
-<span class="k">def</span> <span class="nf">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-    <span class="n">distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
-    <span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">start</span><span class="p">))</span>
-    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-        <span class="n">current_distance</span><span class="p">,</span> <span class="n">current_node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_distance</span><span class="p">:</span>
-            <span class="k">continue</span>
-
-        <span class="k">for</span> <span class="n">adj_node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">new_distance</span> <span class="o">=</span> <span class="n">current_distance</span> <span class="o">+</span> <span class="n">d</span>
-            <span class="k">if</span> <span class="n">new_distance</span> <span class="o">&lt;</span> <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]:</span>
-                <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
-                <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">new_distance</span><span class="p">,</span> <span class="n">adj_node</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">distances</span></code></pre></td></tr></table>
-</div>
-</div>
-<br>
-<p>다음 노드를 선택하는 방식을 일반 리스트로 사용하면 아래와 같다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -803,16 +810,59 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </div>
 </div>
 <br>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">print</span><span class="p">(</span><span class="s2">&#34;--graph--&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;---------------------&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
 <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/3f126648-6205-458d-89e7-7abe3c0fea9a.png">
+        <picture>
+            <source srcset="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/3f126648-6205-458d-89e7-7abe3c0fea9a_hubdebf6c3bfea08a3e736df5131e48466_19621_1800x0_resize_box_2.png" />
+            <img src="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/3f126648-6205-458d-89e7-7abe3c0fea9a_hubdebf6c3bfea08a3e736df5131e48466_19621_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
 <br>
 <div class="gdoc-page__anchorwrap">
-    <h1 id="6-전체-통합-소스-및-실행-결과">
-        6. 전체 통합 소스 및 실행 결과
-        <a data-clipboard-text="https://hwangseonbi.github.io/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/#6-전체-통합-소스-및-실행-결과" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 6. 전체 통합 소스 및 실행 결과" href="#6-%ec%a0%84%ec%b2%b4-%ed%86%b5%ed%95%a9-%ec%86%8c%ec%8a%a4-%eb%b0%8f-%ec%8b%a4%ed%96%89-%ea%b2%b0%ea%b3%bc">
+    <h1 id="6-문제">
+        6. 문제
+        <a data-clipboard-text="https://hwangseonbi.github.io/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/#6-문제" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 6. 문제" href="#6-%eb%ac%b8%ec%a0%9c">
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><div class="highlight"><div class="chroma">
+</div><p><code>heapq</code>를 사용하여 인접 노드 중 가장 가까운 노드를 빠르게 구해볼 수 있다. <code>heapq</code>방식으로 백준 <a class="gdoc-markdown__link" href="https://www.acmicpc.net/problem/1753">1753</a> 문제를 풀어보았다. <code>4.일반화</code>의 3번과정(방문하지 않은 노드 중에서 가장 비용이 적은 노드 선택)을 뺐다. 방문했는지 여부는 사실 <code>if new_distance &amp;lt; SHORTEST_DISTANCES[adj_node]:</code> 조건을 통해서 알 수 있기 때문이다.</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -845,189 +895,46 @@ Notion 페이지에 최적화되어있습니다. → 다익스트라 최단거�
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">heapq</span>
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">heappush</span><span class="p">,</span> <span class="n">heappop</span>
 
-<span class="n">graph1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
-    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">graph2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
-    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">{}</span>
-<span class="p">}</span>
+<span class="n">INF</span> <span class="o">=</span> <span class="mi">100000000</span>
+<span class="n">V</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+<span class="n">GRAPH</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">SHORTEST_DISTANCES</span> <span class="o">=</span> <span class="p">[</span><span class="n">INF</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="k">def</span> <span class="nf">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-    <span class="n">distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
-    <span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">start</span><span class="p">))</span>
-    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-        <span class="n">current_distance</span><span class="p">,</span> <span class="n">current_node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_distance</span><span class="p">:</span>
-            <span class="k">continue</span>
-
-        <span class="k">for</span> <span class="n">adj_node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+    <span class="n">SHORTEST_DISTANCES</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">SHORTEST_DISTANCES</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">start</span><span class="p">))</span>
+    <span class="k">while</span> <span class="n">heap</span><span class="p">:</span>
+        <span class="n">current_distance</span><span class="p">,</span> <span class="n">current_node</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">adj_node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">GRAPH</span><span class="p">[</span><span class="n">current_node</span><span class="p">]:</span>
             <span class="n">new_distance</span> <span class="o">=</span> <span class="n">current_distance</span> <span class="o">+</span> <span class="n">d</span>
-            <span class="k">if</span> <span class="n">new_distance</span> <span class="o">&lt;</span> <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]:</span>
-                <span class="n">distances</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
-                <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">(</span><span class="n">new_distance</span><span class="p">,</span> <span class="n">adj_node</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">distances</span>
+            <span class="k">if</span> <span class="n">new_distance</span> <span class="o">&lt;</span> <span class="n">SHORTEST_DISTANCES</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]:</span>
+                <span class="n">SHORTEST_DISTANCES</span><span class="p">[</span><span class="n">adj_node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
+                <span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">new_distance</span><span class="p">,</span> <span class="n">adj_node</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get_min_node</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
-        <span class="n">min_node</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">min_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="k">if</span> <span class="n">min_distance</span> <span class="o">&gt;</span> <span class="n">distance</span><span class="p">:</span>
-                <span class="n">min_distance</span> <span class="o">=</span> <span class="n">distance</span>
-                <span class="n">min_node</span> <span class="o">=</span> <span class="n">node</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">GRAPH</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">min_node</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">is_visited</span> <span class="ow">in</span> <span class="n">visited</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_visited</span><span class="p">:</span>
-                    <span class="n">min_node</span> <span class="o">=</span> <span class="n">node</span>
-        <span class="k">return</span> <span class="n">min_node</span>
-
-    <span class="n">shortest_distances</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
-    <span class="n">shortest_distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">shortest_distances</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">])</span>
-
-    <span class="n">visited</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="bp">False</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
-    <span class="n">visited</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-
-    <span class="n">current_node</span> <span class="o">=</span> <span class="n">start</span>
-    <span class="k">while</span> <span class="bp">False</span> <span class="ow">in</span> <span class="n">visited</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-        <span class="n">current_node</span> <span class="o">=</span> <span class="n">get_min_node</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">new_distance</span> <span class="o">=</span> <span class="n">shortest_distances</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span>
-            <span class="k">if</span> <span class="n">shortest_distances</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">new_distance</span><span class="p">:</span>
-                <span class="n">shortest_distances</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_distance</span>
-
-        <span class="n">visited</span><span class="p">[</span><span class="n">current_node</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="k">return</span> <span class="n">shortest_distances</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--graph1--&#34;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">graph1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;---------------------&#34;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--graph2--&#34;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">graph2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;---------------------&#34;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_heapq</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dijkstra_using_adj</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="n">dijkstra</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">SHORTEST_DISTANCES</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span> <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="n">INF</span> <span class="k">else</span> <span class="s2">&#34;INF&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <br>
-<p>실행 결과</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex justify-center">
-<figure class="gdoc-markdown__figure">
-    <a class="gdoc-markdown__link--raw" href="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/6b2d307a-d1d3-4823-abcc-531a73bd25af.png">
-        <picture>
-            <source srcset="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/6b2d307a-d1d3-4823-abcc-531a73bd25af_hu6b5be34c6df882bd3e6d47a08c024378_62265_1800x0_resize_box_2.png" />
-            <img src="/Algorithm/6deb1329-a0df-4511-b16e-ead4ac2248a5/6b2d307a-d1d3-4823-abcc-531a73bd25af_hu6b5be34c6df882bd3e6d47a08c024378_62265_1800x0_resize_box_2.png" alt="" />
-        </picture>
-    </a>
-    
-</figure>
-</div>
-
-
 <br>
-<br>
-<br>
-<br>
+<p>주의할 점은 <code>heapq.heapush()</code> 함수 사용 시, 튜플을 인자로 줄 때다. 튜플을 잘못쓰면 오히려 시간초과가 발생할 수 있다.</p>
+<p>heappush 인자로 <code>heappush(heap, (new_distance, adj_node))</code> 대신 <code>heappush(heap, (adj_node, new_distance))</code> 을 전달했다. 이럴경우 <code>heappop()</code>을 호출했을 때 <code>distance</code>가 최소인 노드가 반환되지 않고 <code>adj_node</code> 값이 최소인 노드를 반환하게된다. 즉 그냥 노드번호가 가장 낮은 노드가 반환되는 것이다.</p>
+<p>반드시 <a class="gdoc-markdown__link" href="https://docs.python.org/3/library/heapq.html">Reference-heapq</a>를 잘 확인해보고 사용하자.</p>
 <br>
 
 
