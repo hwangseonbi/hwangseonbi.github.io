@@ -1,5 +1,5 @@
 ---
-date: 2021-06-30 15:11:00
+date: 2021-07-17 16:07:00
 resources:
 - name: ddf73190-2e53-405c-bd39-3d5dec372df1.png
   src: ddf73190-2e53-405c-bd39-3d5dec372df1.png
@@ -14,6 +14,14 @@ title: Python에서 GIL이란?
 weight: 6
 
 ---
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Python에서 GIL이란?](https://www.notion.so/hwangseonbi/Python-GIL-b18ceaba6f844fd5b80b2404bd935d32)***
+
+<br>
+
+
+
+{{< toc >}}
+
 # GIL이란?
 
 <br>

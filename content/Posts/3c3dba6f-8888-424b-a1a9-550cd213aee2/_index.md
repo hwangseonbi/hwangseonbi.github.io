@@ -1,5 +1,5 @@
 ---
-date: 2021-06-30 12:56:00
+date: 2021-07-17 16:06:00
 resources:
 - name: c10a970b-bf0d-409b-bf98-3ce8d69e1677.png
   src: c10a970b-bf0d-409b-bf98-3ce8d69e1677.png
@@ -11,7 +11,7 @@ title: 파이썬에 대한 몇가지 의문들
 weight: 4
 
 ---
-> ***그 동안 Python을 사용하면서 궁금했던 몇가지 의문들에 대한 답을 채워본다.***
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [파이썬에 대한 몇가지 의문들](https://www.notion.so/hwangseonbi/3c3dba6f8888424ba1a9550cd213aee2)***
 
 <br>
 
@@ -22,6 +22,8 @@ weight: 4
 <br>
 
 
+
+> ***그 동안 Python을 사용하면서 궁금했던 몇가지 의문들에 대한 답을 채워본다.***
 
 # 1. 파이썬의 실행방식은 C언어 계열과 어떻게 다른가?
 
@@ -192,7 +194,7 @@ C언어 코드를 빌드과정을 다시 살펴보자.
 
 
 
-# Reference
+# 7. Reference
 
 Learning Python - Mark Lutz 저
 
