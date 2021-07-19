@@ -1,5 +1,5 @@
 ---
-date: 2021-07-19 06:36:00
+date: 2021-07-19 06:52:00
 resources:
 - name: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
   src: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
@@ -107,103 +107,103 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 # 4. 배운 것들
 
-- ACID
+ACID
 
-	- AICD란?
+- AICD란?
 
-	- Isolation 레벨 별로 다른 트랜잭션 동작과 그에 따라 발생할 수 있는 문제들
-
-<br>
-
-
-
-- Indexing
-
-	- 인덱싱이란?
-
-	- Select 쿼리 시 내부에서 일어나는 일
-
-	- Index Scan과 Index Only Scan의 차이
-
-	- Where 조건에 따른 퍼포먼스 차이
-
-	- Bitmap Index Scan vs Index Scan vs Table Scan
-
-	- Bloom filters
+- Isolation 레벨 별로 다른 트랜잭션 동작과 그에 따라 발생할 수 있는 문제들
 
 <br>
 
 
 
-- Database Partitioning
+Indexing
 
-	- Database Partitioning 이란?
+- 인덱싱이란?
 
-	- Partitioning : Vertical vs Horizontal
+- Select 쿼리 시 내부에서 일어나는 일
 
-<br>
+- Index Scan과 Index Only Scan의 차이
 
+- Where 조건에 따른 퍼포먼스 차이
 
+- Bitmap Index Scan vs Index Scan vs Table Scan
 
-- Database Sharding
-
-	- Database Sharding 이란?
-
-<br>
-
-
-
-- Concurrency Control
-
-	- Lock이란?
-
-	- Shared Locks vs Exclusive Lock
-
-	- Two-Phase Locking
+- Bloom filters
 
 <br>
 
 
 
-- Database Replication
+Database Partitioning
 
-	- Database Replication 이란?
+- Database Partitioning 이란?
 
-	- 발생할 수 있는 동기화문제
+- Partitioning : Vertical vs Horizontal
 
-	- 동기화문제 해결 방안
+<br>
 
-		- Master-Backup vs Multi-Master Replication
 
-		- Synchronous vs Asynchronous Replication
+
+Database Sharding
+
+- Database Sharding 이란?
+
+<br>
+
+
+
+Concurrency Control
+
+- Lock이란?
+
+- Shared Locks vs Exclusive Lock
+
+- Two-Phase Locking
+
+<br>
+
+
+
+Database Replication
+
+- Database Replication 이란?
+
+- 발생할 수 있는 동기화문제
+
+- 동기화문제 해결 방안
+
+	- Master-Backup vs Multi-Master Replication
+
+	- Synchronous vs Asynchronous Replication
 
 	<br>
 
 	
 
-- Row vs Column Oriented Database
+Row vs Column Oriented Database
 
-	- Row vs Column Oriented Database란 무엇이고 각각 어떤 용도로 사용하는가?
-
-<br>
-
-
-
-- 여러가지 DB 엔진
-
-	- B-Tree Database Engine에는 어떤 것들이 있는지?
-
-	- LSM Database Engine에는 어떤 것들이 있는지?
+- Row vs Column Oriented Database란 무엇이고 각각 어떤 용도로 사용하는가?
 
 <br>
 
 
 
-- Database Cursor
+여러가지 DB 엔진
 
-	- Database Cursor란?
+- B-Tree Database Engine에는 어떤 것들이 있는지?
 
-	- Server Side vs Client Side Database Cursors
+- LSM Database Engine에는 어떤 것들이 있는지?
+
+<br>
+
+
+
+Database Cursor
+
+- Database Cursor란?
+
+- Server Side vs Client Side Database Cursors
 
 <br>
 
