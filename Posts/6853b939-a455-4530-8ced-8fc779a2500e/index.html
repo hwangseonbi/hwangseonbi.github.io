@@ -582,11 +582,11 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 <br>
 <p>그런데 무엇하나도 완벽한 것이 없었다. 티스토리와 같은 블로그 서비스들은 테마나 UI가 너무 고정적이다. OneNotes는 에디터의 자유도가 지나치게 높다. Gitbook이 그나마 내가 원하는 바와 가장 맞았다. 그러나 Gitbook도 막상 써보니 생각지못한 곳에서 문제가 많았다. (한글문제라던가.. 등등) Github 정적블로그는 편집이 까다로웠다.</p>
 <br>
-<p>결국 나는 <code>Notion</code>에 정착했다. 충분한 편집 자유도, 웹페이지 노출, 다양한 DB, 문서를 카테고리화하여 정리 등등 내가 원하는 찾던 도구에 거의 완벽했다. 특히 에디터는 완벽 이상이었다.</p>
+<p>결국 나는 <strong><code>Notion</code></strong> 에 정착했다. 충분한 편집 자유도, 웹페이지 노출, 다양한 DB, 문서를 카테고리화하여 정리 등등 내가 원하는 찾던 도구에 거의 완벽했다. 특히 에디터는 완벽 이상이었다.</p>
 <br>
-<p>단 하나의 흠이라고한다면 <code>Notion을 블로그로 사용하기 어렵다는 것</code>이다. Notion으로 글을 작성하고 정적블로그에 손수 옮기는 작업도 참으로 개고생인듯했다. 그래서 이런 방법을 생각했다.</p>
+<p>단 하나의 흠이라고한다면 <strong><code>Notion을 블로그로 사용하기 어렵다는 것</code></strong> 이다. Notion으로 글을 작성하고 정적블로그에 손수 옮기는 작업도 참으로 개고생인듯했다. 그래서 이런 방법을 생각했다.</p>
 <br>
-<p><code>Notion으로 문서를 편집하고 Github 정적블로그로 렌더링을 시키는 것!</code></p>
+<p><strong><code>Notion으로 문서를 편집하고 Github 정적블로그로 렌더링을 시키는 것!</code></strong></p>
 <br>
 <p>이 문서에서는 구현 방법에 대한 자세한 내용보다는 어떤 문제가 있었고 이를 해결하기위해 어떤 방법을 사용했는지 정도의 흐름으로 정리했다.</p>
 <br>
@@ -597,7 +597,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
-</div><p>정적블로그 제너레이터는 여러가지가 있다. 그 중에서 <a class="gdoc-markdown__link" href="https://gohugo.io/">Hugo</a>를 선택했다. 그리고는 <a class="gdoc-markdown__link" href="https://themes.gohugo.io/">Hugo Theme</a>을 둘러보았다. 내가 찾는 테마의 조건은 이렇다.</p>
+</div><p>정적블로그 제너레이터는 여러가지가 있다. 그 중에서 <strong><a class="gdoc-markdown__link" href="https://gohugo.io/">Hugo</a></strong> 를 선택했다. 그리고는 <strong><a class="gdoc-markdown__link" href="https://themes.gohugo.io/">Hugo Theme</a></strong> 을 둘러보았다. 내가 찾는 테마의 조건은 이렇다.</p>
 <ul>
 <li>
 <p>Left Navigation기능이 있고 Category Expanding을 지원해야한다.</p>
@@ -616,7 +616,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 </li>
 </ul>
 <br>
-<p>여러 테마를 직접 받아서 테스트해보고 최종적으로 선택한 테마는 <a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-geekdoc/">hugo-geekdoc</a>였다.</p>
+<p>여러 테마를 직접 받아서 테스트해보고 최종적으로 선택한 테마는 <strong><a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-geekdoc/">hugo-geekdoc</a></strong> 였다.</p>
 
 
 
@@ -679,7 +679,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 <br>
 <br>
-<p><em>참고로</em> <em><a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-clinic-notes/">hugo-clinic-notes</a></em>  <em>이 테마도 정말 깔끔하다. (깔끔하기만 하다.)</em></p>
+<p><em>참고로</em> <strong><em><a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-clinic-notes/">hugo-clinic-notes</a></em></strong>  <em>이 테마도 정말 깔끔하다. (깔끔하기만 하다.)</em></p>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="3-githubio에-정적블로그-생성하기">
@@ -718,10 +718,10 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <br>
-<p>여기서는 작은 팁을 하나 공유하고자한다. 우리가 github page에 넣어놓아야 하는 것은 Hugo 빌드를 통해 나온 결과물이다. 어떤 분들은 Hugo 디렉토리와 Hugo 빌드 결과물을 다른 레포지토리에 놓는 경우도 있던데 나는 그것이 더러워보였다. 그래서 브랜치로 나누어 놓았다.</p>
+<p>여기서는 작은 팁을 하나 공유하고자한다. 우리가 github page에 넣어놓아야 하는 것은 Hugo 빌드를 통해 나온 결과물이다. 어떤 분들은 Hugo 정적파일들과 Hugo 빌드 결과물을 다른 레포지토리에 놓는 경우도 있던데 나는 그것이 더러워보였다. 그래서 브랜치로 나누어 놓았다.</p>
 <ul>
 <li>
-<p>main 브랜치 : Hugo 컨텐츠</p>
+<p>main 브랜치 : Hugo 정적 파일</p>
 </li>
 <li>
 <p>gh-page 브랜치 : Hugo 빌드 결과물</p>
@@ -785,7 +785,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <br>
-<p>그리고나서 git action을 사용해 main브랜치에 컨텐츠에 커밋(푸시)이 발생되었을때 빌드가 된 후 gh-page에 배포되게 했다. 자세한 방법은 <a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a>을 참고하면 된다. git action에 대한 내용은 아래에서 다시 기술하겠다.</p>
+<p>그리고나서 git action을 사용해 main브랜치에 커밋(푸시)이 발생되었을 때 빌드가 된 후 gh-page에 배포되게 했다. 자세한 방법은 <strong><a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a></strong> 을 참고하면 된다. git action에 대한 내용은 아래에서 다시 기술하겠다.</p>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="4-notion-페이지-정보-가져오기">
@@ -796,15 +796,15 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
     </h1>
 </div><p>이제 할 일은 Notion 페이지의 Block에 접근해야 하는 것이다. <a class="gdoc-markdown__link" href="https://developers.notion.com/">Notion</a>에서 공식적으로 API를 제공하긴 하지만 아직 베타버전이며 텍스트 타입 Block만 지원한다. 즉 이미지 같은 블럭은 읽을 수 없다는 것이다. 다행히 Unofficial Notion API이지만 Official보다 괜찮은 파이썬 라이브러리가 있었다.</p>
 <ul>
-<li><a class="gdoc-markdown__link" href="https://github.com/jamalex/notion-py">notion-py</a></li>
+<li><strong><a class="gdoc-markdown__link" href="https://github.com/jamalex/notion-py">notion-py</a></strong></li>
 </ul>
 <br>
 <p>이제 이것으로 Notion페이지를 읽고 hugo-geekdoc에 맞게 변환하여 Markdown 파일을 만들어 주어야 한다. 이 부분은 파이썬 패키지로 만들어놓았다.</p>
 <ul>
-<li><a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc">https://github.com/hwangseonbi/notion2geekdoc</a></li>
+<li><strong><a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc">https://github.com/hwangseonbi/notion2geekdoc</a></strong></li>
 </ul>
 <br>
-<p>간단히 설명하자면 아래와 같이 Notion 페이지 하나에 테이블을 놓는다. 테이블은 여러개를 놓을 수 있다. 이렇게 여러 개의 테이블을 포함한 페이지를 <code>Root Page</code>라고 정의했다.</p>
+<p>간단히 설명하자면 아래와 같이 Notion 페이지 하나에 테이블을 놓는다. 테이블은 여러개를 놓을 수 있다. 이렇게 여러 개의 테이블을 포함한 페이지를 <strong><code>Root Page</code></strong> 라고 정의했다.</p>
 
 
 
@@ -834,7 +834,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <br>
-<p>그 후 이 Root Page URL 주소로 notion2geekdoc 모듈을 실행시키면 아래 Left Navigation과 같이 테이블 단위로 카테고리화된다. 그리고 <code>Status Property</code>가 <code>Published</code>인 문서들이 geekdoc theme에 꼭 맞게 랜더링된다! 자세한 사용법은 <a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc/blob/main/README.md">README.md</a>에 적어놓았다.</p>
+<p>그 후 이 Root Page URL 주소로 notion2geekdoc 모듈을 실행시키면 아래 Left Navigation과 같이 테이블 단위로 카테고리화된다. 그리고 <strong><code>Status Property</code></strong> 가 <strong><code>Published</code></strong> 인 문서들이 geekdoc theme에 꼭 맞게 랜더링된다! 자세한 사용법은 <strong><a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc/blob/main/README.md">README.md</a></strong> 에 적어놓았다.</p>
 
 
 
@@ -864,9 +864,9 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <br>
-<p><code>그러나 우리는 이 패키지를 직접 사용하지 않을 것이다 😓</code></p>
+<p><strong><code>그러나 우리는 이 패키지를 직접 사용하지 않을 것이다 😓</code></strong></p>
 <br>
-<p>글을 작성하거나 편집할 때마다 파이썬 패키지를 실행시키고 Hugo 빌드 결과물을 Github에 커밋한다는 것&hellip; 또한 엄청난 <code>노가다</code>이다. 이를 자동화할 수 있다.</p>
+<p>글을 작성하거나 편집할 때마다 파이썬 패키지를 실행시키고 Hugo 빌드 결과물을 Github에 커밋한다는 것&hellip; 또한 엄청난 <strong><code>노가다</code></strong> 이다. 이를 자동화할 수 있다.</p>
 <br>
 <div class="gdoc-page__anchorwrap">
     <h1 id="5-자동화하기">
@@ -905,7 +905,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <p>그 동안 힐끗힐끗 신경쓰였던 Github의 Actions 탭이다. 알아보니 빌드, 테스트, 배포 등 다양한 작업을 할 수 있었다. 하나의 큰 작업을 workflow라고 한다. workflow 안에서는 언제 이 workflow가 실행될지 trigger를 정의하고 job과 step 단위로 할 일을 정의할 수 있다. 더 멋진 것은 이러한 workflow를 패키지화하여 다른 사람들과 공유할 수 있다는 것이다.</p>
-<p>예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. 아래와 같이 <a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-hugo">peaceiris/actions-hugo@v2</a> action step을 거치면 그 이후부터는 Hugo를 사용할 수 있는 상태가 된다.</p>
+<p>예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. 아래와 같이 <strong><a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-hugo">peaceiris/actions-hugo@v2</a></strong>  action step을 거치면 그 이후부터는 Hugo를 사용할 수 있는 상태가 된다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -930,14 +930,14 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 <p>매일 하루에 한번씩 notion2geekdoc 모듈을 실행</p>
 </li>
 <li>
-<p>notion2geekdoc 모듈을 실행한 결과물(<code>contents</code>)을 hugo에 포함해 빌드한다.</p>
+<p>notion2geekdoc 모듈을 실행한 결과물(<strong><code>contents</code></strong> )을 hugo에 포함해 빌드한다.</p>
 </li>
 <li>
 <p>hugo로 빌드한 최종 결과물을 github.io에 커밋&amp;푸쉬한다.</p>
 </li>
 </ol>
 <br>
-<p>workflow의 트리거는 <a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events">scheduled-events</a>를 사용하면 된다. 나는 매일 UTC기준 00:00에 빌드가 되도록 설정했다. 한국 시각은 09:00이다.</p>
+<p>workflow의 트리거는 <strong><a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events">scheduled-events</a></strong> 를 사용하면 된다. 나는 매일 UTC기준 00:00에 빌드가 되도록 설정했다. 한국 시각은 09:00이다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -953,11 +953,11 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 </div>
 </div>
 <br>
-<p>그리고 Job을 두 부분으로 나누었다. 하나는 notion2geekdoc을 실행하는 Job(<code>render_from_notion</code>)이다. 여기서 <code>contents</code> 디렉토리가 만들어진다. 다른 하나의 Job은 render_from_notion에서 만들어진 contents를 가지고 Hugo 빌드를 하고 배포하는 Job(<code>deploy_content</code>)이다.</p>
+<p>그리고 Job을 두 부분으로 나누었다. 하나는 notion2geekdoc을 실행하는 Job(<strong><code>render_from_notion</code></strong> )이다. 여기서 <strong><code>contents</code></strong>  디렉토리가 만들어진다. 다른 하나의 Job은 render_from_notion에서 만들어진 contents를 가지고 Hugo 빌드를 하고 배포하는 Job(<strong><code>deploy_content</code></strong> )이다.</p>
 <br>
-<p>이때 Job 간에 contents를 공유해야한다. 하지만 Job은 별도의 VM 환경에서 실행되기 때문에 파일시스템이 공유되지 않는다. 따라서 우리는 contents를 공유할 수 있도록 업로드와 다운로드를 해야한다. 이러한 일을 <a class="gdoc-markdown__link" href="https://github.com/actions/download-artifact">download-artifact</a> Action이 해준다.</p>
+<p>이때 Job 간에 contents를 공유해야한다. 하지만 Job은 별도의 VM 환경에서 실행되기 때문에 파일시스템이 공유되지 않는다. 따라서 우리는 contents를 공유할 수 있도록 업로드와 다운로드를 해야한다. 이러한 일을 <strong><a class="gdoc-markdown__link" href="https://github.com/actions/download-artifact">download-artifact</a></strong>  Action이 해준다.</p>
 <br>
-<p>자세한 workflow 정의는 <a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/hwangseonbi.github.io/blob/main/.github/workflows/cron_sync_notion_scheduler.yml">cron_sync_notion_scheduler.yml</a> 에서 확인할 수 있다. 아래는 매일 한번씩 실행된 git action 기록들을 보여준다.</p>
+<p>자세한 workflow 정의는 <strong><a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/hwangseonbi.github.io/blob/main/.github/workflows/cron_sync_notion_scheduler.yml">cron_sync_notion_scheduler.yml</a></strong>  에서 확인할 수 있다. 아래는 매일 한번씩 실행된 git action 기록들을 보여준다.</p>
 
 
 
@@ -987,7 +987,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 
 <br>
-<p>마지막으로 이런 것들을 만들거나 테스트할 때 cron을 trigger로 사용하는 것은 비효율적이다. 사용자가 원하는 시점에 원하는 변수로 trigger하는 방법으로 <a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events">manual-events</a> 라는 방법이 있다. 아래와 같이 정의하며 실행할 때마다 input으로 사용자가 원하는 값을 전달할 수도 있다.</p>
+<p>마지막으로 이런 것들을 만들거나 테스트할 때 cron을 trigger로 사용하는 것은 비효율적이다. 사용자가 원하는 시점에 원하는 변수로 trigger하는 방법으로 <strong><a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events">manual-events</a></strong>  라는 방법이 있다. 아래와 같이 정의하며 실행할 때마다 input으로 사용자가 원하는 값을 전달할 수도 있다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
