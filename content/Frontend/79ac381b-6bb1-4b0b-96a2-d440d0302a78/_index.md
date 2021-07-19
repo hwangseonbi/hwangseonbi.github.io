@@ -1,5 +1,5 @@
 ---
-date: 2021-06-06 07:38:00
+date: 2021-07-19 06:05:00
 resources:
 - name: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
   src: 3f158742-e8fc-4f14-abe3-6e6c67376745.png
@@ -35,7 +35,7 @@ title: CSS Box 모델에 대하여
 weight: 0
 
 ---
-> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [CSS Box 모델에 대하여](https://www.notion.so/hwangseonbi/CSS-Box-79ac381b6bb14b0b96a2d440d0302a78)***
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Notion에서 보기](https://www.notion.so/hwangseonbi/CSS-Box-79ac381b6bb14b0b96a2d440d0302a78)***
 
 <br>
 

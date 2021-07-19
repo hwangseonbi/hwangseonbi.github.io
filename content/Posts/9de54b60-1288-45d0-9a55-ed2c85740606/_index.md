@@ -1,5 +1,5 @@
 ---
-date: 2021-07-18 09:07:00
+date: 2021-07-19 06:36:00
 resources:
 - name: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
   src: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
@@ -17,7 +17,7 @@ title: Introduce To Database 스터디 회고록
 weight: 8
 
 ---
-> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Introduce To Database 스터디 회고록](https://www.notion.so/hwangseonbi/Introduce-To-Database-9de54b60128845d09a55ed2c85740606)***
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Notion에서 보기](https://www.notion.so/hwangseonbi/Introduce-To-Database-9de54b60128845d09a55ed2c85740606)***
 
 ---
 
@@ -45,7 +45,7 @@ weight: 8
 
 
 
-`경험을 통해 필요성을 느끼는 것이 무엇보다 큰 학습동기가 된다.` 
+**`경험을 통해 필요성을 느끼는 것이 무엇보다 큰 학습동기가 된다.`** 
 
 <br>
 
@@ -99,7 +99,7 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 참고로 강의는 그리 만족스럽지 않았다. 강사 본인의 유튜브채널 컨텐츠를 그대로 커리큘럼에 넣어놓았다. 그리고 정적인 영상을 띄워놓고 말만 주구장창해서 집중도와 이해도가 떨어진다.
 
-그래서 `별한개`를 주었다 ^^
+그래서 **`별한개`** 를 주었다 ^^
 
 <br>
 
@@ -107,51 +107,103 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 # 4. 배운 것들
 
-ACID
+- ACID
+
+	- AICD란?
+
+	- Isolation 레벨 별로 다른 트랜잭션 동작과 그에 따라 발생할 수 있는 문제들
 
 <br>
 
 
 
-Indexing
+- Indexing
+
+	- 인덱싱이란?
+
+	- Select 쿼리 시 내부에서 일어나는 일
+
+	- Index Scan과 Index Only Scan의 차이
+
+	- Where 조건에 따른 퍼포먼스 차이
+
+	- Bitmap Index Scan vs Index Scan vs Table Scan
+
+	- Bloom filters
 
 <br>
 
 
 
-Database Partitioning
+- Database Partitioning
+
+	- Database Partitioning 이란?
+
+	- Partitioning : Vertical vs Horizontal
 
 <br>
 
 
 
-Database Sharding
+- Database Sharding
+
+	- Database Sharding 이란?
 
 <br>
 
 
 
-Concurrency Control
+- Concurrency Control
+
+	- Lock이란?
+
+	- Shared Locks vs Exclusive Lock
+
+	- Two-Phase Locking
 
 <br>
 
 
 
-Database Replication
+- Database Replication
 
-Row vs Column Oriented Database
+	- Database Replication 이란?
+
+	- 발생할 수 있는 동기화문제
+
+	- 동기화문제 해결 방안
+
+		- Master-Backup vs Multi-Master Replication
+
+		- Synchronous vs Asynchronous Replication
+
+	<br>
+
+	
+
+- Row vs Column Oriented Database
+
+	- Row vs Column Oriented Database란 무엇이고 각각 어떤 용도로 사용하는가?
 
 <br>
 
 
 
-여러가지 DB 엔진
+- 여러가지 DB 엔진
+
+	- B-Tree Database Engine에는 어떤 것들이 있는지?
+
+	- LSM Database Engine에는 어떤 것들이 있는지?
 
 <br>
 
 
 
-Database Cursor
+- Database Cursor
+
+	- Database Cursor란?
+
+	- Server Side vs Client Side Database Cursors
 
 <br>
 
@@ -167,7 +219,7 @@ Database Cursor
 
 ## 5.1 Database를 공부해야겠다고 느꼈던 순간
 
-회사에서 `DynamoDB`를 사용하는 프로젝트를 할 때가 DB 기초 지식에 대한 필요성을 처음 느낀 때였다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다. 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.
+회사에서 **`DynamoDB`** 를 사용하는 프로젝트를 할 때가 DB 기초 지식에 대한 필요성을 처음 느낀 때였다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다. 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.
 
 <br>
 
@@ -179,9 +231,9 @@ Database Cursor
 
 
 
-그런데 왠걸? 검색기능이 문제였다. 검색 결과 반환 시간이 약 `몇십초`가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. `범인은 1차원적이게도 DynamoDB 자체였다.` DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.
+그런데 왠걸? 검색기능이 문제였다. 검색 결과 반환 시간이 약 **`몇십초`** 가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. **`범인은 1차원적이게도 DynamoDB 자체였다.`**  DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.
 
-검색이 아예 안되는 것은 아니었다. DynamoDB에서는 `Partition Key`와 `Sort Key`라는 개념이 있다. 이 두가지 Key를 가지고 사용할 수 있는 유즈케이스는 아래와 같다.
+검색이 아예 안되는 것은 아니었다. DynamoDB에서는 **`Partition Key`** 와 **`Sort Key`** 라는 개념이 있다. 이 두가지 Key를 가지고 사용할 수 있는 유즈케이스는 아래와 같다.
 
 <br>
 
@@ -207,13 +259,13 @@ Database Cursor
 
 
 
-이제 문제가 되는 상황을 보자. 예를들어, 아래 `GameScores` 테이블에서 Partition Key는 `UserID`이고 Sort Key는 `GameTitle`이다.
+이제 문제가 되는 상황을 보자. 예를들어, 아래 **`GameScores`**  테이블에서 Partition Key는 **`UserID`** 이고 Sort Key는 **`GameTitle`** 이다.
 
 {{< img name="48a1a328-2146-44b6-a137-f0fcc9c7414d.png" size="large" width="1210" lazy=false >}}
 
 Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
-- "`UserId` 102번의 `GameTitle`이 Starship X인 row를 줘"
+- "**`UserId`**  102번의 **`GameTitle`** 이 Starship X인 row를 줘"
 
 <br>
 
@@ -221,13 +273,13 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 그러나 그 외의 경우에는 매우 느리므로(전체 스캔 필요) 인덱싱을 사용해야한다.
 
-- "`GameTitle`이 Starship X인 것들 중에서 `TopScore`가 가장 높은 row를 줘"
+- "**`GameTitle`** 이 Starship X인 것들 중에서 **`TopScore`** 가 가장 높은 row를 줘"
 
 <br>
 
 
 
-`문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.` 
+**`문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.`**  
 
 <br>
 
@@ -235,16 +287,16 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.
 
-- "`GameTitle`이 Starship X인 것들 중에서 `TopScore`가 가장 높은 row를 줘" → Partition Key가 `GameTitle`이고 Sort Key가 `TopScore`인 인덱스 필요
+- "**`GameTitle`** 이 Starship X인 것들 중에서 **`TopScore`** 가 가장 높은 row를 줘" → Partition Key가 **`GameTitle`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
 
 
 {{< img name="31539c06-c10b-4a47-b140-0874d2a4c642.png" size="small" width="240" lazy=false >}}
 
-- "`wins`가 1인 유저중에 가장 높은 `TopScore`를 가진 row를 줘" → Partition Key가 `wins`이고 Sort Key가 `TopScore`인 인덱스 필요
+- "**`wins`** 가 1인 유저중에 가장 높은 **`TopScore`** 를 가진 row를 줘" → Partition Key가 **`wins`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
 
 - ...
 
-- `필드가 더 많고 여러 조건이 겹친다면?` 😱
+- **`필드가 더 많고 여러 조건이 겹친다면?`**  😱
 
 <br>
 
@@ -256,7 +308,7 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 
 
-`비용 폭탄은 덤이었다.`
+**`비용 폭탄은 덤이었다.`** 
 
 <br>
 
@@ -264,13 +316,13 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 ## 5.2 해결 방법
 
-이 서비스의 본질은 캐싱이다. 다시말해 클라이언트 측에서 이 서비스를 사용하는 이유는 `속도`다. DynamoDB는 규모에 상관없이 짧은 지연시간을 보장하는 Key-Value DB라고 알려져있다. 즉 DynamoDB를 다른 Database로 교체하려면 어플리케이션의 유즈케이스에서 DynamoDB보다 빠른지 또는 느린지 체크해야하며 느릴경우 느린 정도가 합리적일지, 문제는 없는지 체크해야한다. 그리고 비용도 비교해봐야한다. 고려해야할 사항이 많았다. 검색기능 지원 하나를 위해서 함부로, 쉽게 DynamoDB를 다른 Database로 바꿀 수는 없었다.
+이 서비스의 본질은 캐싱이다. 다시말해 클라이언트 측에서 이 서비스를 사용하는 이유는 **`속도`** 다. DynamoDB는 규모에 상관없이 짧은 지연시간을 보장하는 Key-Value DB라고 알려져있다. 즉 DynamoDB를 다른 Database로 교체하려면 어플리케이션의 유즈케이스에서 DynamoDB보다 빠른지 또는 느린지 체크해야하며 느릴경우 느린 정도가 합리적일지, 문제는 없는지 체크해야한다. 그리고 비용도 비교해봐야한다. 고려해야할 사항이 많았다. 검색기능 지원 하나를 위해서 함부로, 쉽게 DynamoDB를 다른 Database로 바꿀 수는 없었다.
 
 <br>
 
 
 
-내부 논의 끝에 결국 DB를 갈아치우진 못하였다. 그 대신 DynamoDB `Stream`기능을 사용하기로 했다. DynamoDB로 들어오는 Insert, Delete, Update 등의 Event를 Lambda로 받고 DocumentDB로 미러링 시켰다. 그렇게되면 검색은 DocumentDB에서 담당하게 되는데 속도가 나름 합리적이었다.
+내부 논의 끝에 결국 DB를 갈아치우진 못하였다. 그 대신 DynamoDB **`Stream`** 기능을 사용하기로 했다. DynamoDB로 들어오는 Insert, Delete, Update 등의 Event를 Lambda로 받고 DocumentDB로 미러링 시켰다. 그렇게되면 검색은 DocumentDB에서 담당하게 되는데 속도가 나름 합리적이었다.
 
 <br>
 
@@ -278,7 +330,7 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 검색기능 하나 때문에 DocumentDB를 사용하는 것은 낭비이긴 하지만 사내 일정 사정 상, 근본적인 해결은 Next Todo List로 남겼다.
 
-`게다가 DocumentDB는 클러스터 형태라서 인스턴스가 3개 이상으로 돌아간다는건 안비밀`
+**`게다가 DocumentDB는 클러스터 형태라서 인스턴스가 3개 이상으로 돌아간다는건 안비밀`** 
 
 <br>
 
