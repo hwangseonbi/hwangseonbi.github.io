@@ -11,13 +11,13 @@
 
 
     <meta name="description" content="이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.
-Notion 페이지에 최적화되어있습니다. → Introduce To Database 스터디 회고록
-   1. Database 스터디를 시작한 이유 2. 모집 3. 후기 4. 배운 것들 5. 회고  5.1 Database를 공부해야겠다고 느꼈던 순간 5.2 해결 방법 5.3 다시 그때로 돌아간다면?      약 2개월 간의 Database 스터디가 끝났다. 이 스터디를 시작한 이유가 무엇인지, 무엇을 배웠는지 후기를 남겨보려한다.
- 1. Database 스터디를 시작한 이유    컴퓨터공학과 학부시절, Database를 공부한다는 것이 정확히 어떤 것을 공부를 하는 것인지 몰랐다.">
+Notion 페이지에 최적화되어있습니다. → Notion에서 보기
+  1. 무엇이 필요했는지? 2. 정적블로그와 테마 선택하기 3. Github.io에 정적블로그 생성하기 4. Notion 페이지 정보 가져오기 5. 자동화하기 6. 결론   1. 무엇이 필요했는지?    지금까지 몇번이고 블로그 운영과 문서화 시도를 해왔다. 그러나 어느것하나 내가 원하는 기능을 만족시키는 제품이 없었다. 되돌아보니 지금까지 정말 여러 서비스들을 거쳐왔다.
+ 네이버 블로그, 티스토리, 워드프레스, OneNotes(MS), Gitbook, Github 정적블로그 등등.">
 
 
 
-    <title>Introduce To Database 스터디 회고록 | @hwangseonbi</title>
+    <title>Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme) | @hwangseonbi</title>
 
     <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -38,7 +38,7 @@ Notion 페이지에 최적화되어있습니다. → Introduce To Database 스�
 <link rel="preload" href="/custom.css" as="style">
 <link rel="stylesheet" href="/custom.css" media="all">
 
-<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/index.xml" title="@hwangseonbi" />
+<link rel="alternate" type="application/rss+xml" href="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/index.xml" title="@hwangseonbi" />
 
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
@@ -411,7 +411,7 @@ Notion 페이지에 최적화되어있습니다. → Introduce To Database 스�
             
             
                 <span class="flex">
-                    <a href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/" class="gdoc-nav__entry is-active">
+                    <a href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/" class="gdoc-nav__entry ">
                         Introduce To Database 스터디 회고록
                     </a>
                 </span>
@@ -437,7 +437,7 @@ Notion 페이지에 최적화되어있습니다. → Introduce To Database 스�
             
             
                 <span class="flex">
-                    <a href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/" class="gdoc-nav__entry ">
+                    <a href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/" class="gdoc-nav__entry is-active">
                         Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme)
                     </a>
                 </span>
@@ -533,7 +533,7 @@ Notion 페이지에 최적화되어있습니다. → Introduce To Database 스�
         
     
     
-        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Posts/' href='/Posts/'><span itemprop='name'>Posts</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Introduce To Database 스터디 회고록</span><meta itemprop='position' content='3' /></li>
+        <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>@hwangseonbi</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/Posts/' href='/Posts/'><span itemprop='name'>Posts</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme)</span><meta itemprop='position' content='3' /></li>
     
 
     
@@ -547,328 +547,517 @@ Notion 페이지에 최적화되어있습니다. → Introduce To Database 스�
 </div>
 
     <article class="gdoc-markdown gdoc-markdown__align--left">
-        <h1>Introduce To Database 스터디 회고록</h1>
+        <h1>Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme)</h1>
         <blockquote>
-<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="https://www.notion.so/hwangseonbi/Introduce-To-Database-9de54b60128845d09a55ed2c85740606">Introduce To Database 스터디 회고록</a></strong></em></p>
+<p><em><strong>이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → <a class="gdoc-markdown__link" href="/6853b939a45545308ced8fc779a2500e">Notion에서 보기</a></strong></em></p>
 </blockquote>
-<hr>
 <br>
 
 
 
   <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1-database-스터디를-시작한-이유">1. Database 스터디를 시작한 이유</a></li>
-    <li><a href="#2-모집">2. 모집</a></li>
-    <li><a href="#3-후기">3. 후기</a></li>
-    <li><a href="#4-배운-것들">4. 배운 것들</a></li>
-    <li><a href="#5-회고">5. 회고</a>
-      <ul>
-        <li><a href="#51-database를-공부해야겠다고-느꼈던-순간">5.1 Database를 공부해야겠다고 느꼈던 순간</a></li>
-        <li><a href="#52-해결-방법">5.2 해결 방법</a></li>
-        <li><a href="#53-다시-그때로-돌아간다면">5.3 다시 그때로 돌아간다면?</a></li>
-      </ul></nav><hr></div>
+    <li><a href="#1-무엇이-필요했는지">1. 무엇이 필요했는지?</a></li>
+    <li><a href="#2-정적블로그와-테마-선택하기">2. 정적블로그와 테마 선택하기</a></li>
+    <li><a href="#3-githubio에-정적블로그-생성하기">3. Github.io에 정적블로그 생성하기</a></li>
+    <li><a href="#4-notion-페이지-정보-가져오기">4. Notion 페이지 정보 가져오기</a></li>
+    <li><a href="#5-자동화하기">5. 자동화하기</a></li>
+    <li><a href="#6-결론">6. 결론</a></li>
+  </ul>
+</nav><hr></div>
 
 
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="1-무엇이-필요했는지">
+        1. 무엇이 필요했는지?
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#1-무엇이-필요했는지" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 1. 무엇이 필요했는지?" href="#1-%eb%ac%b4%ec%97%87%ec%9d%b4-%ed%95%84%ec%9a%94%ed%96%88%eb%8a%94%ec%a7%80">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>지금까지 몇번이고 블로그 운영과 문서화 시도를 해왔다. 그러나 어느것하나 내가 원하는 기능을 만족시키는 제품이 없었다. 되돌아보니 지금까지 정말 여러 서비스들을 거쳐왔다.</p>
+<ul>
+<li>네이버 블로그, 티스토리, 워드프레스, OneNotes(MS), Gitbook, Github 정적블로그 등등..</li>
+</ul>
+<br>
+<p>그런데 무엇하나도 완벽한 것이 없었다. 티스토리와 같은 블로그 서비스들은 테마나 UI가 너무 고정적이다. OneNotes는 에디터의 자유도가 지나치게 높다. Gitbook이 그나마 내가 원하는 바와 가장 맞았다. 그러나 Gitbook도 막상 써보니 생각지못한 곳에서 문제가 많았다. (한글문제라던가.. 등등) Github 정적블로그는 편집이 까다로웠다.</p>
+<br>
+<p>결국 나는 <code>Notion</code>에 정착했다. 충분한 편집 자유도, 웹페이지 노출, 다양한 DB, 문서를 카테고리화하여 정리 등등 내가 원하는 찾던 도구에 거의 완벽했다. 특히 에디터는 완벽 이상이었다.</p>
+<br>
+<p>단 하나의 흠이라고한다면 <code>Notion을 블로그로 사용하기 어렵다는 것</code>이다. Notion으로 글을 작성하고 정적블로그에 손수 옮기는 작업도 참으로 개고생인듯했다. 그래서 이런 방법을 생각했다.</p>
+<br>
+<p><code>Notion으로 문서를 편집하고 Github 정적블로그로 렌더링을 시키는 것!</code></p>
+<br>
+<p>이 문서에서는 구현 방법에 대한 자세한 내용보다는 어떤 문제가 있었고 이를 해결하기위해 어떤 방법을 사용했는지 정도의 흐름으로 정리했다.</p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="2-정적블로그와-테마-선택하기">
+        2. 정적블로그와 테마 선택하기
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#2-정적블로그와-테마-선택하기" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 2. 정적블로그와 테마 선택하기" href="#2-%ec%a0%95%ec%a0%81%eb%b8%94%eb%a1%9c%ea%b7%b8%ec%99%80-%ed%85%8c%eb%a7%88-%ec%84%a0%ed%83%9d%ed%95%98%ea%b8%b0">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>정적블로그 제너레이터는 여러가지가 있다. 그 중에서 <a class="gdoc-markdown__link" href="https://gohugo.io/">Hugo</a>를 선택했다. 그리고는 <a class="gdoc-markdown__link" href="https://themes.gohugo.io/">Hugo Theme</a>을 둘러보았다. 내가 찾는 테마의 조건은 이렇다.</p>
+<ul>
+<li>
+<p>Left Navigation기능이 있고 Category Expanding을 지원해야한다.</p>
+</li>
+<li>
+<p>최대한 깔끔</p>
+</li>
+<li>
+<p>Shortcodes(embed, Expand, image size 조절 등)도 풍부했으면 좋겠다.</p>
+</li>
+<li>
+<p>커스터마이징도 가능해야함.</p>
+</li>
+<li>
+<p>다크모드, 화이트모드 모두 지원했으면 좋겠다.</p>
+</li>
+</ul>
+<br>
+<p>여러 테마를 직접 받아서 테스트해보고 최종적으로 선택한 테마는 <a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-geekdoc/">hugo-geekdoc</a>였다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/ff72eb95-786c-42da-87a6-95285df0e5dc.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/ff72eb95-786c-42da-87a6-95285df0e5dc_hud0da61bdd0698bd4dfd0ec312ae6fbdd_371424_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/ff72eb95-786c-42da-87a6-95285df0e5dc_hud0da61bdd0698bd4dfd0ec312ae6fbdd_371424_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<p>특히 hugo-geekdoc은 다양한 Shortcuts를 지원하고있기 때문에 Notion의 다양한 종류의 Block을 표현할 수 있을 것이라고 생각했다. Notion에서는 페이지를 이루고있는 요소 하나하나(Text Type, Numbered List 등)를 Block이라는 단위로 부른다.</p>
+<p>테마 칼라도 각자 입맛에 맞게 수정한다. footer와 header 등 각 컴포넌트도 커스터마이징이 가능하니 이 부분도 입맛에 맞게 수정한다.</p>
+<br>
+<p>나는 색을 최소한으로 사용하도록 수정했다. 그리고 footer에 댓글기능을 추가했다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/7754f4e3-87f1-43ec-b5b1-bd5988f79212.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/7754f4e3-87f1-43ec-b5b1-bd5988f79212_hubd23cb024a44488a47b87219372a5086_221370_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/7754f4e3-87f1-43ec-b5b1-bd5988f79212_hubd23cb024a44488a47b87219372a5086_221370_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<br>
+<p><em>참고로</em> <em><a class="gdoc-markdown__link" href="https://themes.gohugo.io/themes/hugo-clinic-notes/">hugo-clinic-notes</a></em>  <em>이 테마도 정말 깔끔하다. (깔끔하기만 하다.)</em></p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="3-githubio에-정적블로그-생성하기">
+        3. Github.io에 정적블로그 생성하기
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#3-githubio에-정적블로그-생성하기" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 3. Github.io에 정적블로그 생성하기" href="#3-githubio%ec%97%90-%ec%a0%95%ec%a0%81%eb%b8%94%eb%a1%9c%ea%b7%b8-%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/4abe62cf-eeea-479e-9988-0dc0d544fe6c.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/4abe62cf-eeea-479e-9988-0dc0d544fe6c_huae37b240b1db4ee099bd70185d77d821_305003_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/4abe62cf-eeea-479e-9988-0dc0d544fe6c_huae37b240b1db4ee099bd70185d77d821_305003_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>여기서는 작은 팁을 하나 공유하고자한다. 우리가 github page에 넣어놓아야 하는 것은 Hugo 빌드를 통해 나온 결과물이다. 어떤 분들은 Hugo 디렉토리와 Hugo 빌드 결과물을 다른 레포지토리에 놓는 경우도 있던데 나는 그것이 더러워보였다. 그래서 브랜치로 나누어 놓았다.</p>
+<ul>
+<li>
+<p>main 브랜치 : Hugo 컨텐츠</p>
+</li>
+<li>
+<p>gh-page 브랜치 : Hugo 빌드 결과물</p>
+</li>
+</ul>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/b17238ac-cdaf-4aa8-b0a7-e1222f43246c.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/b17238ac-cdaf-4aa8-b0a7-e1222f43246c_hu0005a45cc96c3eb908889a122b6ad3f1_197664_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/b17238ac-cdaf-4aa8-b0a7-e1222f43246c_hu0005a45cc96c3eb908889a122b6ad3f1_197664_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/11e8aeda-4b64-4a33-99d6-29e60f8a6576.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/11e8aeda-4b64-4a33-99d6-29e60f8a6576_hua4c000fbd72f3943bbda280123696386_165248_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/11e8aeda-4b64-4a33-99d6-29e60f8a6576_hua4c000fbd72f3943bbda280123696386_165248_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>그리고나서 git action을 사용해 main브랜치에 컨텐츠에 커밋(푸시)이 발생되었을때 빌드가 된 후 gh-page에 배포되게 했다. 자세한 방법은 <a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a>을 참고하면 된다. git action에 대한 내용은 아래에서 다시 기술하겠다.</p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="4-notion-페이지-정보-가져오기">
+        4. Notion 페이지 정보 가져오기
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#4-notion-페이지-정보-가져오기" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 4. Notion 페이지 정보 가져오기" href="#4-notion-%ed%8e%98%ec%9d%b4%ec%a7%80-%ec%a0%95%eb%b3%b4-%ea%b0%80%ec%a0%b8%ec%98%a4%ea%b8%b0">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>이제 할 일은 Notion 페이지의 Block에 접근해야 하는 것이다. <a class="gdoc-markdown__link" href="https://developers.notion.com/">Notion</a>에서 공식적으로 API를 제공하긴 하지만 아직 베타버전이며 텍스트 타입 Block만 지원한다. 즉 이미지 같은 블럭은 읽을 수 없다는 것이다. 다행히 Unofficial Notion API이지만 Official보다 괜찮은 파이썬 라이브러리가 있었다.</p>
+<ul>
+<li><a class="gdoc-markdown__link" href="https://github.com/jamalex/notion-py">notion-py</a></li>
+</ul>
+<br>
+<p>이제 이것으로 Notion페이지를 읽고 hugo-geekdoc에 맞게 변환하여 Markdown 파일을 만들어 주어야 한다. 이 부분은 파이썬 패키지로 만들어놓았다.</p>
+<ul>
+<li><a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc">https://github.com/hwangseonbi/notion2geekdoc</a></li>
+</ul>
+<br>
+<p>간단히 설명하자면 아래와 같이 Notion 페이지 하나에 테이블을 놓는다. 테이블은 여러개를 놓을 수 있다. 이렇게 여러 개의 테이블을 포함한 페이지를 <code>Root Page</code>라고 정의했다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/1bfa7958-c267-4e28-b389-686dd6f7494c.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/1bfa7958-c267-4e28-b389-686dd6f7494c_hu1da43fd7279bb8fded502337af68258f_247711_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/1bfa7958-c267-4e28-b389-686dd6f7494c_hu1da43fd7279bb8fded502337af68258f_247711_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>그 후 이 Root Page URL 주소로 notion2geekdoc 모듈을 실행시키면 아래 Left Navigation과 같이 테이블 단위로 카테고리화된다. 그리고 <code>Status Property</code>가 <code>Published</code>인 문서들이 geekdoc theme에 꼭 맞게 랜더링된다! 자세한 사용법은 <a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/notion2geekdoc/blob/main/README.md">README.md</a>에 적어놓았다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/78de027b-e494-4c4f-9bce-5d25975d47d3.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/78de027b-e494-4c4f-9bce-5d25975d47d3_hub35c10b36fa54b579eee431c9c0d84ad_250725_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/78de027b-e494-4c4f-9bce-5d25975d47d3_hub35c10b36fa54b579eee431c9c0d84ad_250725_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p><code>그러나 우리는 이 패키지를 직접 사용하지 않을 것이다 😓</code></p>
+<br>
+<p>글을 작성하거나 편집할 때마다 파이썬 패키지를 실행시키고 Hugo 빌드 결과물을 Github에 커밋한다는 것&hellip; 또한 엄청난 <code>노가다</code>이다. 이를 자동화할 수 있다.</p>
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="5-자동화하기">
+        5. 자동화하기
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#5-자동화하기" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5. 자동화하기" href="#5-%ec%9e%90%eb%8f%99%ed%99%94%ed%95%98%ea%b8%b0">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>지금까지의 작업들을 자동화해줄 방법을 생각해보았다. 개인 서버에서 스크립트를 짜고 crontab을 돌릴까도 생각해보았지만 찾다보니 기가막힌 기능을 멀지않은 곳에서 찾을 수 있었다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/dc0cf4ce-42e2-444c-a484-faf2092f7517.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/dc0cf4ce-42e2-444c-a484-faf2092f7517_hu096c1252c18e7257921c23bba0d2b117_132850_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/dc0cf4ce-42e2-444c-a484-faf2092f7517_hu096c1252c18e7257921c23bba0d2b117_132850_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<p>그 동안 힐끗힐끗 신경쓰였던 Github의 Actions 탭이다. 알아보니 빌드, 테스트, 배포 등 다양한 작업을 할 수 있었다. 하나의 큰 작업을 workflow라고 한다. workflow 안에서는 언제 이 workflow가 실행될지 trigger를 정의하고 job과 step 단위로 할 일을 정의할 수 있다. 더 멋진 것은 이러한 workflow를 패키지화하여 다른 사람들과 공유할 수 있다는 것이다.</p>
+<p>예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. 아래와 같이 <a class="gdoc-markdown__link" href="https://github.com/peaceiris/actions-hugo">peaceiris/actions-hugo@v2</a> action step을 거치면 그 이후부터는 Hugo를 사용할 수 있는 상태가 된다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span><span class="w">  </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.81.0&#39;</span><span class="w">
+</span><span class="w">    </span><span class="c"># extended: true</span></code></pre></td></tr></table>
+</div>
+</div>
+<br>
+<br>
+<p>아무튼 나는 아래 작업을 실행하게 했다.</p>
+<ol>
+<li>
+<p>매일 하루에 한번씩 notion2geekdoc 모듈을 실행</p>
+</li>
+<li>
+<p>notion2geekdoc 모듈을 실행한 결과물(<code>contents</code>)을 hugo에 포함해 빌드한다.</p>
+</li>
+<li>
+<p>hugo로 빌드한 최종 결과물을 github.io에 커밋&amp;푸쉬한다.</p>
+</li>
+</ol>
+<br>
+<p>workflow의 트리거는 <a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events">scheduled-events</a>를 사용하면 된다. 나는 매일 UTC기준 00:00에 빌드가 되도록 설정했다. 한국 시각은 09:00이다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cron_sync_notion_scheduler</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0 0 * * *&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<br>
+<p>그리고 Job을 두 부분으로 나누었다. 하나는 notion2geekdoc을 실행하는 Job(<code>render_from_notion</code>)이다. 여기서 <code>contents</code> 디렉토리가 만들어진다. 다른 하나의 Job은 render_from_notion에서 만들어진 contents를 가지고 Hugo 빌드를 하고 배포하는 Job(<code>deploy_content</code>)이다.</p>
+<br>
+<p>이때 Job 간에 contents를 공유해야한다. 하지만 Job은 별도의 VM 환경에서 실행되기 때문에 파일시스템이 공유되지 않는다. 따라서 우리는 contents를 공유할 수 있도록 업로드와 다운로드를 해야한다. 이러한 일을 <a class="gdoc-markdown__link" href="https://github.com/actions/download-artifact">download-artifact</a> Action이 해준다.</p>
+<br>
+<p>자세한 workflow 정의는 <a class="gdoc-markdown__link" href="https://github.com/hwangseonbi/hwangseonbi.github.io/blob/main/.github/workflows/cron_sync_notion_scheduler.yml">cron_sync_notion_scheduler.yml</a> 에서 확인할 수 있다. 아래는 매일 한번씩 실행된 git action 기록들을 보여준다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/f2cfb431-5428-4c8b-a695-c370fbfb5377.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/f2cfb431-5428-4c8b-a695-c370fbfb5377_hu7dab4d912df43b6e72b1481a06526d33_151621_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/f2cfb431-5428-4c8b-a695-c370fbfb5377_hu7dab4d912df43b6e72b1481a06526d33_151621_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<p>마지막으로 이런 것들을 만들거나 테스트할 때 cron을 trigger로 사용하는 것은 비효율적이다. 사용자가 원하는 시점에 원하는 변수로 trigger하는 방법으로 <a class="gdoc-markdown__link" href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events">manual-events</a> 라는 방법이 있다. 아래와 같이 정의하며 실행할 때마다 input으로 사용자가 원하는 값을 전달할 수도 있다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">root_page_url</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Root Page URL(public)&#39;</span><span class="w">
+</span><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span></code></pre></td></tr></table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex justify-center">
+<figure class="gdoc-markdown__figure">
+    <a class="gdoc-markdown__link--raw" href="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/6c095d28-bfdf-4b79-89c5-96908f66495a.png">
+        <picture>
+            <source srcset="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/6c095d28-bfdf-4b79-89c5-96908f66495a_hu0a7b7a22ee1a186384ce5f1323833bca_255109_1800x0_resize_box_2.png" />
+            <img src="/Posts/6853b939-a455-4530-8ced-8fc779a2500e/6c095d28-bfdf-4b79-89c5-96908f66495a_hu0a7b7a22ee1a186384ce5f1323833bca_255109_1800x0_resize_box_2.png" alt="" />
+        </picture>
+    </a>
+    
+</figure>
+</div>
+
+
+<br>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="6-결론">
+        6. 결론
+        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/#6-결론" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 6. 결론" href="#6-%ea%b2%b0%eb%a1%a0">
+            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div><p>이 기록은 아무래도 설명서가 아닌 경험담이기 때문에 자세한 구축방법을 써놓진 않았다. 그러나 이런식으로 툴을 활용한 시스템 구축은 한번 만들어놓으면 나중에 다시 보았을 때 파악하기 힘들다.</p>
 <br>
 <blockquote>
-<p><em><strong><em>약 2개월 간의 Database 스터디가 끝났다. 이 스터디를 시작한 이유가 무엇인지, 무엇을 배웠는지 후기를 남겨보려한다.</em></strong></em></p>
+<p><em><strong>&lsquo;이게 왜 되고있는 거지?'<br>&lsquo;이런 일은 누가 해주는거지?'</strong></em></p>
 </blockquote>
 <br>
-<div class="gdoc-page__anchorwrap">
-    <h1 id="1-database-스터디를-시작한-이유">
-        1. Database 스터디를 시작한 이유
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#1-database-스터디를-시작한-이유" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 1. Database 스터디를 시작한 이유" href="#1-database-%ec%8a%a4%ed%84%b0%eb%94%94%eb%a5%bc-%ec%8b%9c%ec%9e%91%ed%95%9c-%ec%9d%b4%ec%9c%a0">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h1>
-</div><p>컴퓨터공학과 학부시절, Database를 공부한다는 것이 정확히 어떤 것을 공부를 하는 것인지 몰랐다. 무엇보다 Database 공부의 필요성을 못느꼈다. 그 필요는 회사에서 개발을 시작하고나서야 느꼈다. 그 전까지는 필요를 느낄만한 경험이 부족했던 것 같다.</p>
-<br>
-<p><code>경험을 통해 필요성을 느끼는 것이 무엇보다 큰 학습동기가 된다.</code></p>
-<br>
-<p>Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 DynamoDB를 사용하는 프로젝트를 할 때였다. 서문이 길어질 것 같아 자세한 내용은 가장 문서 말미에 써야겠다.</p>
-<br>
-<p>일단 개발자 커뮤니티에서 Database 기초 스터디가 있는지 찾아봤다. 스터디 모집글의 거의 95%는 Spring, 알고리즘, 프론트앤드 프레임워크 글이었다. 그래서 직접 모집을 시작했다.</p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h1 id="2-모집">
-        2. 모집
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#2-모집" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 2. 모집" href="#2-%eb%aa%a8%ec%a7%91">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h1>
-</div><p>직접 모집을 하는 것의 좋은 점은 커리큘럼과 일정 등을 내 마음대로 결정할 수 있다는 점이다. 모집글은 최대한 자세하게 적었다. 아무 계획없이 사람만 모았다가 스터디가 산으로 가거나 그대로 해산하는 경우도 종종 목격했기 때문이다.</p>
-<br>
-<p>소개, 모임 시간, 인원, 장소 그리고 무엇보다 스터디 방식과 계획을 자세하게 적었다. 아래는 스터디 모집글의 일부다.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex justify-center">
-<figure class="gdoc-markdown__figure">
-    <a class="gdoc-markdown__link--raw" href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/af2a2436-560b-4e7a-9b4f-3839b2e2055b.png">
-        <picture>
-            <source srcset="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/af2a2436-560b-4e7a-9b4f-3839b2e2055b_hu47ae290104a38b73a23cc3f5ca2fef54_319324_1800x0_resize_box_2.png" />
-            <img src="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/af2a2436-560b-4e7a-9b4f-3839b2e2055b_hu47ae290104a38b73a23cc3f5ca2fef54_319324_1800x0_resize_box_2.png" alt="" />
-        </picture>
-    </a>
-    
-</figure>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex justify-center">
-<figure class="gdoc-markdown__figure">
-    <a class="gdoc-markdown__link--raw" href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/a434a817-becb-4589-afd5-d48354d62051.png">
-        <picture>
-            <source srcset="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/a434a817-becb-4589-afd5-d48354d62051_hu83e76af0305c0bf5b1418055e744a6a6_325233_1800x0_resize_box_2.png" />
-            <img src="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/a434a817-becb-4589-afd5-d48354d62051_hu83e76af0305c0bf5b1418055e744a6a6_325233_1800x0_resize_box_2.png" alt="" />
-        </picture>
-    </a>
-    
-</figure>
-</div>
-
-
-<br>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h1 id="3-후기">
-        3. 후기
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#3-후기" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 3. 후기" href="#3-%ed%9b%84%ea%b8%b0">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h1>
-</div><p>스터디는 성공적으로 완료했다 👍 중간에 이탈하는 인원도 없었고 모두 끝까지 함께 해주셨다.</p>
-<p>나름 주최자라서그런지 가장 열심히 해야겠다는 책임감이 들었다. 그래서 모든 챕터를 문서로 남기려고 했다. 이렇게 했을 때 좋은 점은 발표자분께서 갑작스럽게 일이 생기더라도 내가 발표를 하고(공부도 더 된다) 스터디를 계속 진행할 수 있다는 점이다. 참여자분들은 다들 직장에 재직중이셨기 때문에 부담을 최대한 덜어드리려고 노력했다. 물론 내가 쉬고있는 상태라서 가능했다.</p>
-<p>그럼에도 불구하고 어쩔 수 없이 뛰어넘은 주차가 1~2회 정도 있었다. 여기서 느낀 것은 스터디가 한 주라도 미뤄지면 텐션이 떨어진다는 것이다. 특히 비대면 스터디라 더욱 크게 느껴졌다. 다음에도 이런 방식의 스터디를 한다면 차라리 발표자를 대체하고 강행하는 것이 나을 것 같다고 생각했다.</p>
-<br>
-<p>참고로 강의는 그리 만족스럽지 않았다. 강사 본인의 유튜브채널 컨텐츠를 그대로 커리큘럼에 넣어놓았다. 그리고 정적인 영상을 띄워놓고 말만 주구장창해서 집중도와 이해도가 떨어진다.</p>
-<p>그래서 <code>별한개</code>를 주었다 ^^</p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h1 id="4-배운-것들">
-        4. 배운 것들
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#4-배운-것들" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 4. 배운 것들" href="#4-%eb%b0%b0%ec%9a%b4-%ea%b2%83%eb%93%a4">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h1>
-</div><p>ACID</p>
-<br>
-<p>Indexing</p>
-<br>
-<p>Database Partitioning</p>
-<br>
-<p>Database Sharding</p>
-<br>
-<p>Concurrency Control</p>
-<br>
-<p>Database Replication</p>
-<p>Row vs Column Oriented Database</p>
-<br>
-<p>여러가지 DB 엔진</p>
-<br>
-<p>Database Cursor</p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h1 id="5-회고">
-        5. 회고
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#5-회고" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5. 회고" href="#5-%ed%9a%8c%ea%b3%a0">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h1>
-</div><p>머릿말에서 Database 기초 지식의 필요성을 회사에서 처음 느꼈다고 했다. 회사에서 있었던 일은 아래와 같다.</p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="51-database를-공부해야겠다고-느꼈던-순간">
-        5.1 Database를 공부해야겠다고 느꼈던 순간
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#51-database를-공부해야겠다고-느꼈던-순간" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5.1 Database를 공부해야겠다고 느꼈던 순간" href="#51-database%eb%a5%bc-%ea%b3%b5%eb%b6%80%ed%95%b4%ec%95%bc%ea%b2%a0%eb%8b%a4%ea%b3%a0-%eb%8a%90%ea%bc%88%eb%8d%98-%ec%88%9c%ea%b0%84">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>회사에서 <code>DynamoDB</code>를 사용하는 프로젝트를 할 때가 DB 기초 지식에 대한 필요성을 처음 느낀 때였다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다. 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.</p>
-<br>
-<blockquote>
-<p><em><strong>DynamoDB에 필터를 걸어 find만 해주면 되겠구나. 그리고 Key 값으로 항목을 삭제하면 되겠구나.</strong></em></p>
-</blockquote>
-<br>
-<p>그런데 왠걸? 검색기능이 문제였다. 검색 결과 반환 시간이 약 <code>몇십초</code>가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. <code>범인은 1차원적이게도 DynamoDB 자체였다.</code> DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.</p>
-<p>검색이 아예 안되는 것은 아니었다. DynamoDB에서는 <code>Partition Key</code>와 <code>Sort Key</code>라는 개념이 있다. 이 두가지 Key를 가지고 사용할 수 있는 유즈케이스는 아래와 같다.</p>
-<br>
-<p>하나의 필드를 Partition Key로 설정</p>
-<ul>
-<li>
-<p>이 경우, Partition Key는 Unique한 값으로 이루어져 있어야함.</p>
-</li>
-<li>
-<p>partition_key로 쿼리 시, Item 반환 (빠름)</p>
-</li>
-</ul>
-<br>
-<p>하나의 필드를 Partition Key로 설정하고 다른 하나의 필드를 Sort Key로 설정</p>
-<ul>
-<li>
-<p>이 경우 Partition Key는 중복된 값으로 이루어져 있어도 됨.</p>
-</li>
-<li>
-<p>partition_key와 sort_key로 쿼리 시, sort_key 필드로 정렬되어있는 Item 배열 반환 (빠름)</p>
-</li>
-</ul>
-<br>
-<p>이제 문제가 되는 상황을 보자. 예를들어, 아래 <code>GameScores</code> 테이블에서 Partition Key는 <code>UserID</code>이고 Sort Key는 <code>GameTitle</code>이다.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex justify-center">
-<figure class="gdoc-markdown__figure">
-    <a class="gdoc-markdown__link--raw" href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/48a1a328-2146-44b6-a137-f0fcc9c7414d.png">
-        <picture>
-            <source srcset="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/48a1a328-2146-44b6-a137-f0fcc9c7414d_hu57942978349e231497b6f397805abd3a_178900_1800x0_resize_box_2.png" />
-            <img src="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/48a1a328-2146-44b6-a137-f0fcc9c7414d_hu57942978349e231497b6f397805abd3a_178900_1800x0_resize_box_2.png" alt="" />
-        </picture>
-    </a>
-    
-</figure>
-</div>
-
-
-<p>Partition Key와 Sort Key를 사용한 쿼리는 빠르다.</p>
-<ul>
-<li>&ldquo;<code>UserId</code> 102번의 <code>GameTitle</code>이 Starship X인 row를 줘&rdquo;</li>
-</ul>
-<br>
-<p>그러나 그 외의 경우에는 매우 느리므로(전체 스캔 필요) 인덱싱을 사용해야한다.</p>
-<ul>
-<li>&ldquo;<code>GameTitle</code>이 Starship X인 것들 중에서 <code>TopScore</code>가 가장 높은 row를 줘&rdquo;</li>
-</ul>
-<br>
-<p><code>문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.</code></p>
-<br>
-<p>아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.</p>
-<ul>
-<li>&ldquo;<code>GameTitle</code>이 Starship X인 것들 중에서 <code>TopScore</code>가 가장 높은 row를 줘&rdquo; → Partition Key가 <code>GameTitle</code>이고 Sort Key가 <code>TopScore</code>인 인덱스 필요</li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex justify-center">
-<figure class="gdoc-markdown__figure">
-    <a class="gdoc-markdown__link--raw" href="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/31539c06-c10b-4a47-b140-0874d2a4c642.png">
-        <picture>
-            <source srcset="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/31539c06-c10b-4a47-b140-0874d2a4c642_hufd2a6b9a80ac79b81aa8714b77e32a4a_117781_600x0_resize_box_2.png" />
-            <img src="/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/31539c06-c10b-4a47-b140-0874d2a4c642_hufd2a6b9a80ac79b81aa8714b77e32a4a_117781_1800x0_resize_box_2.png" alt="" />
-        </picture>
-    </a>
-    
-</figure>
-</div>
-
-
-<ul>
-<li>
-<p>&ldquo;<code>wins</code>가 1인 유저중에 가장 높은 <code>TopScore</code>를 가진 row를 줘&rdquo; → Partition Key가 <code>wins</code>이고 Sort Key가 <code>TopScore</code>인 인덱스 필요</p>
-</li>
-<li>
-<p>&hellip;</p>
-</li>
-<li>
-<p><code>필드가 더 많고 여러 조건이 겹친다면?</code> 😱</p>
-</li>
-</ul>
-<br>
-<p>검색조건이 복잡해질때 전체 스캔을 피하려면 수많은 인덱스를 생성해야하는 상황이 발생하는 것이다. 결국 DynamoDB를 고수한다면 검색조건에 제약이 생기거나 검색조건에 따라 데이터 반환 시간은 다르며 최악의 조건일 경우, 테이블 전체 스캔으로 몇십초 단위의 검색이 이루어진다.</p>
-<br>
-<p><code>비용 폭탄은 덤이었다.</code></p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="52-해결-방법">
-        5.2 해결 방법
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#52-해결-방법" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5.2 해결 방법" href="#52-%ed%95%b4%ea%b2%b0-%eb%b0%a9%eb%b2%95">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>이 서비스의 본질은 캐싱이다. 다시말해 클라이언트 측에서 이 서비스를 사용하는 이유는 <code>속도</code>다. DynamoDB는 규모에 상관없이 짧은 지연시간을 보장하는 Key-Value DB라고 알려져있다. 즉 DynamoDB를 다른 Database로 교체하려면 어플리케이션의 유즈케이스에서 DynamoDB보다 빠른지 또는 느린지 체크해야하며 느릴경우 느린 정도가 합리적일지, 문제는 없는지 체크해야한다. 그리고 비용도 비교해봐야한다. 고려해야할 사항이 많았다. 검색기능 지원 하나를 위해서 함부로, 쉽게 DynamoDB를 다른 Database로 바꿀 수는 없었다.</p>
-<br>
-<p>내부 논의 끝에 결국 DB를 갈아치우진 못하였다. 그 대신 DynamoDB <code>Stream</code>기능을 사용하기로 했다. DynamoDB로 들어오는 Insert, Delete, Update 등의 Event를 Lambda로 받고 DocumentDB로 미러링 시켰다. 그렇게되면 검색은 DocumentDB에서 담당하게 되는데 속도가 나름 합리적이었다.</p>
-<br>
-<p>검색기능 하나 때문에 DocumentDB를 사용하는 것은 낭비이긴 하지만 사내 일정 사정 상, 근본적인 해결은 Next Todo List로 남겼다.</p>
-<p><code>게다가 DocumentDB는 클러스터 형태라서 인스턴스가 3개 이상으로 돌아간다는건 안비밀</code></p>
-<br>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="53-다시-그때로-돌아간다면">
-        5.3 다시 그때로 돌아간다면?
-        <a data-clipboard-text="https://hwangseonbi.github.io/Posts/9de54b60-1288-45d0-9a55-ed2c85740606/#53-다시-그때로-돌아간다면" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor 5.3 다시 그때로 돌아간다면?" href="#53-%eb%8b%a4%ec%8b%9c-%ea%b7%b8%eb%95%8c%eb%a1%9c-%eb%8f%8c%ec%95%84%ea%b0%84%eb%8b%a4%eb%a9%b4">
-            <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div><p>지금에 와서도 딱히 더 좋은 다른 해결책이 생각나진 않는다. 그러나 스터디에서 배운 개념들에 비추어 더 넓게 생각해볼 수 있을 것 같다. 서비스에서 고려해야할 부분뿐만 아니라 개인적인 호기심에서 비롯된 궁금증이 더 많아지고 더 많이 찾아봤을 것 같다.</p>
+<p>이 문서는 Zerobase에서도 구축할 수 있는 설명서가 될 때까지 업데이트해야할 것 같다. 그러나 더 좋은 것은 이러한 장황한 문서를 안보고도 쉽게 구축할 수 있는 것이다. 아래 작업들로 훨씬 편하게 만들 수 있을 것 같은데 이것들은 Next로 남겨두어야겠다.</p>
 <br>
 <ul>
 <li>
-<p>우리 서비스에서 트랜잭션이 필요한 구간은 없는지? DynamoDB는 트랜잭션을 어떻게 구현할 수 있는지?</p>
+<p>notion2geekdoc모듈의 setuptools 설정 등 사전 작업 및 pypi 등록</p>
 </li>
 <li>
-<p>DynamoDB에서 Isolation level을 설정할 수 있는지? 그렇게 해서 일관성을 얻을 수 있는지? 그러한 일관성이 우리 서비스에서 필요한지? 아니면 일관성을 일부 포기하고 퍼포먼스를 선택하는게 더 좋을지?</p>
-</li>
-<li>
-<p>Postgresql에서는 특정 row에 접근해 attributes를 가져올 때 Heap에서 random access로 가져올텐데 DynamoDB에서는 Partition Key를 통해 특정 row에 접근 후 다른 attributes를 불러올 때 어떻게 가져오는지?</p>
-</li>
-<li>
-<p>DynamoDB에서 Partition Key로 쿼리를 하면 Hash함수를 통해 특정 값에 도달할 수 있다는데 Hash Collision은 없는지? 당연히 없게 만들어져있겠지만 어떤식으로 피하는지?</p>
+<p>하나의 git action으로 위 작업들이 자동화되게끔 git action 제작 또는 Docker conatiner image 제작 (가능할 지는 모르겠다.)</p>
 </li>
 </ul>
-<br>
-<br>
 <br>
 
 
