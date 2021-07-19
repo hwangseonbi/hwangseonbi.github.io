@@ -1,4 +1,4 @@
-name: temp_sync_notion_scheduler
+name: cron_sync_notion_scheduler
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -55,7 +55,7 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Automatic commit from git action(sync_from_notion.yml) : ${{ secrets.NOTION_BLOG_URL }}"
+          commit_message: "Automatic commit from git action(cron_sync_notion_scheduler.yml) : ${{ secrets.NOTION_BLOG_URL }}"
           status_options: '--untracked-files=all'
           add_options: '-A'
 
