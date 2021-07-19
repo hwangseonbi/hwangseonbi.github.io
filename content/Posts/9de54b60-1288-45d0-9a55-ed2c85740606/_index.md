@@ -1,5 +1,5 @@
 ---
-date: 2021-07-17 14:08:00
+date: 2021-07-18 09:07:00
 resources:
 - name: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
   src: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
@@ -17,6 +17,14 @@ title: Introduce To Database 스터디 회고록
 weight: 8
 
 ---
+> ***이 블로그는 Notion에서 랜더링 자동화를 통해 제작되었습니다.<br>Notion 페이지에 최적화되어있습니다. → [Introduce To Database 스터디 회고록](https://www.notion.so/hwangseonbi/Introduce-To-Database-9de54b60128845d09a55ed2c85740606)***
+
+---
+
+<br>
+
+
+
 {{< toc >}}
 
 <br>
@@ -24,6 +32,10 @@ weight: 8
 
 
 > ***_약 2개월 간의 Database 스터디가 끝났다. 이 스터디를 시작한 이유가 무엇인지, 무엇을 배웠는지 후기를 남겨보려한다._***
+
+<br>
+
+
 
 # 1. Database 스터디를 시작한 이유
 
@@ -46,6 +58,10 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 
 일단 개발자 커뮤니티에서 Database 기초 스터디가 있는지 찾아봤다. 스터디 모집글의 거의 95%는 Spring, 알고리즘, 프론트앤드 프레임워크 글이었다. 그래서 직접 모집을 시작했다.
+
+<br>
+
+
 
 # 2. 모집
 
@@ -81,7 +97,7 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 
 
-+ 참고로 강의는 그리 만족스럽지 않았다. 강사 본인의 유튜브채널 컨텐츠를 그대로 커리큘럼에 넣어놓았다. 그리고 정적인 영상을 띄워놓고 말만 주구장창해서 집중도와 이해도가 떨어진다.
+참고로 강의는 그리 만족스럽지 않았다. 강사 본인의 유튜브채널 컨텐츠를 그대로 커리큘럼에 넣어놓았다. 그리고 정적인 영상을 띄워놓고 말만 주구장창해서 집중도와 이해도가 떨어진다.
 
 그래서 `별한개`를 주었다 ^^
 
@@ -191,7 +207,7 @@ Database Cursor
 
 
 
-이제 문제가 되는 상황을 보자. 예를들어, 아래 GameScores 테이블에서 Partition Key는 `UserID`이고 Sort Key는 `GameTitle`이다.
+이제 문제가 되는 상황을 보자. 예를들어, 아래 `GameScores` 테이블에서 Partition Key는 `UserID`이고 Sort Key는 `GameTitle`이다.
 
 {{< img name="48a1a328-2146-44b6-a137-f0fcc9c7414d.png" size="large" width="1210" lazy=false >}}
 
@@ -211,7 +227,13 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 
 
-`문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.` 아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.
+`문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.` 
+
+<br>
+
+
+
+아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.
 
 - "`GameTitle`이 Starship X인 것들 중에서 `TopScore`가 가장 높은 row를 줘" → Partition Key가 `GameTitle`이고 Sort Key가 `TopScore`인 인덱스 필요
 
@@ -219,6 +241,8 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 {{< img name="31539c06-c10b-4a47-b140-0874d2a4c642.png" size="small" width="240" lazy=false >}}
 
 - "`wins`가 1인 유저중에 가장 높은 `TopScore`를 가진 row를 줘" → Partition Key가 `wins`이고 Sort Key가 `TopScore`인 인덱스 필요
+
+- ...
 
 - `필드가 더 많고 여러 조건이 겹친다면?` 😱
 
