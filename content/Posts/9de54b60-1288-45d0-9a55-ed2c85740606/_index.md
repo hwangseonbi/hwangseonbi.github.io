@@ -1,5 +1,5 @@
 ---
-date: 2021-07-19 06:52:00
+date: 2021-07-19 06:57:00
 resources:
 - name: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
   src: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
@@ -109,9 +109,9 @@ Database 기초 지식에 대한 필요성을 처음 느낀 때는 회사에서 
 
 ACID
 
-- AICD란?
+1. AICD란?
 
-- Isolation 레벨 별로 다른 트랜잭션 동작과 그에 따라 발생할 수 있는 문제들
+1. Isolation 레벨 별로 다른 트랜잭션 동작과 그에 따라 발생할 수 있는 문제들
 
 <br>
 
@@ -119,17 +119,17 @@ ACID
 
 Indexing
 
-- 인덱싱이란?
+1. 인덱싱이란?
 
-- Select 쿼리 시 내부에서 일어나는 일
+1. Select 쿼리 시 내부에서 일어나는 일
 
-- Index Scan과 Index Only Scan의 차이
+1. Index Scan과 Index Only Scan의 차이
 
-- Where 조건에 따른 퍼포먼스 차이
+1. Where 조건에 따른 퍼포먼스 차이
 
-- Bitmap Index Scan vs Index Scan vs Table Scan
+1. Bitmap Index Scan vs Index Scan vs Table Scan
 
-- Bloom filters
+1. Bloom filters
 
 <br>
 
@@ -137,9 +137,9 @@ Indexing
 
 Database Partitioning
 
-- Database Partitioning 이란?
+1. Database Partitioning 이란?
 
-- Partitioning : Vertical vs Horizontal
+1. Partitioning : Vertical vs Horizontal
 
 <br>
 
@@ -147,7 +147,7 @@ Database Partitioning
 
 Database Sharding
 
-- Database Sharding 이란?
+1. Database Sharding 이란?
 
 <br>
 
@@ -155,11 +155,11 @@ Database Sharding
 
 Concurrency Control
 
-- Lock이란?
+1. Lock이란?
 
-- Shared Locks vs Exclusive Lock
+1. Shared Locks vs Exclusive Lock
 
-- Two-Phase Locking
+1. Two-Phase Locking
 
 <br>
 
@@ -167,23 +167,23 @@ Concurrency Control
 
 Database Replication
 
-- Database Replication 이란?
+1. Database Replication 이란?
 
-- 발생할 수 있는 동기화문제
+1. 발생할 수 있는 동기화문제
 
-- 동기화문제 해결 방안
+1. 동기화문제 해결 방안
 
 	- Master-Backup vs Multi-Master Replication
 
 	- Synchronous vs Asynchronous Replication
 
-	<br>
+		<br>
 
-	
+		
 
 Row vs Column Oriented Database
 
-- Row vs Column Oriented Database란 무엇이고 각각 어떤 용도로 사용하는가?
+1. Row vs Column Oriented Database란 무엇이고 각각 어떤 용도로 사용하는가?
 
 <br>
 
@@ -191,9 +191,9 @@ Row vs Column Oriented Database
 
 여러가지 DB 엔진
 
-- B-Tree Database Engine에는 어떤 것들이 있는지?
+1. B-Tree Database Engine에는 어떤 것들이 있는지?
 
-- LSM Database Engine에는 어떤 것들이 있는지?
+1. LSM Database Engine에는 어떤 것들이 있는지?
 
 <br>
 
@@ -201,9 +201,9 @@ Row vs Column Oriented Database
 
 Database Cursor
 
-- Database Cursor란?
+1. Database Cursor란?
 
-- Server Side vs Client Side Database Cursors
+1. Server Side vs Client Side Database Cursors
 
 <br>
 
