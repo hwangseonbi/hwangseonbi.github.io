@@ -1,5 +1,5 @@
 ---
-date: 2021-07-19 05:59:00
+date: 2021-07-20 03:38:00
 resources:
 - name: ff72eb95-786c-42da-87a6-95285df0e5dc.png
   src: ff72eb95-786c-42da-87a6-95285df0e5dc.png
@@ -217,13 +217,13 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 # 5. 자동화하기
 
-지금까지의 작업들을 자동화해줄 방법을 생각해보았다. 개인 서버에서 스크립트를 짜고 crontab을 돌릴까도 생각해보았지만 찾다보니 기가막힌 기능을 멀지않은 곳에서 찾을 수 있었다.
+지금까지의 작업들을 자동화해줄 방법을 생각해보았다. 개인 서버에서 스크립트를 짜고 crontab을 돌릴까도 생각해보았지만 찾다보니 멀지않은 곳에서 괜찮은 방법을 찾을 수 있었다.
 
 {{< img name="dc0cf4ce-42e2-444c-a484-faf2092f7517.png" size="large" width="2804" lazy=false >}}
 
 그 동안 힐끗힐끗 신경쓰였던 Github의 Actions 탭이다. 알아보니 빌드, 테스트, 배포 등 다양한 작업을 할 수 있었다. 하나의 큰 작업을 workflow라고 한다. workflow 안에서는 언제 이 workflow가 실행될지 trigger를 정의하고 job과 step 단위로 할 일을 정의할 수 있다. 더 멋진 것은 이러한 workflow를 패키지화하여 다른 사람들과 공유할 수 있다는 것이다.
 
-예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. 아래와 같이 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)**  action step을 거치면 그 이후부터는 Hugo를 사용할 수 있는 상태가 된다.
+예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. Hugo를 설치하는 작업들은 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)** 에 패키징 되어있다. 아래와 같이 Git Action workflow 정의파일에서 step을 정의할 때 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)**  을 거치면 그 이후 step부터는 Hugo를 사용할 수 있는 상태가 된다.
 
 {{< highlight YAML "linenos=table" >}}
 - name: Setup Hugo
@@ -241,7 +241,7 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 
 
-아무튼 나는 아래 작업을 실행하게 했다.
+아무튼 나는 아래 순서로 작업을 실행되게 했다.
 
 1. 매일 하루에 한번씩 notion2geekdoc 모듈을 실행
 
@@ -253,7 +253,7 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 
 
-workflow의 트리거는 **[scheduled-events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events)** 를 사용하면 된다. 나는 매일 UTC기준 00:00에 빌드가 되도록 설정했다. 한국 시각은 09:00이다.
+매일 하루에 한번씩 workflow가 실행되게 하려면 **[scheduled-events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events)**  트리거를 사용하면 된다. 나는 매일 UTC기준 00:00에 빌드가 되도록 설정했다. 한국 시각은 09:00이다.
 
 {{< highlight YAML "linenos=table" >}}
 name: cron_sync_notion_scheduler
@@ -266,13 +266,13 @@ on:
 
 
 
-그리고 Job을 두 부분으로 나누었다. 하나는 notion2geekdoc을 실행하는 Job(**`render_from_notion`** )이다. 여기서 **`contents`**  디렉토리가 만들어진다. 다른 하나의 Job은 render_from_notion에서 만들어진 contents를 가지고 Hugo 빌드를 하고 배포하는 Job(**`deploy_content`** )이다.
+그리고 Job을 두 부분으로 나누었다. 하나는 notion2geekdoc을 실행하는 Job(**`render_from_notion`** )이다. 여기서 **`contents`**  디렉토리가 만들어진다. 다른 하나의 Job은 **`render_from_notion`** 에서 만들어진 **`contents`** 를 가지고 Hugo 빌드를 하고 배포하는 Job(**`deploy_content`** )이다.
 
 <br>
 
 
 
-이때 Job 간에 contents를 공유해야한다. 하지만 Job은 별도의 VM 환경에서 실행되기 때문에 파일시스템이 공유되지 않는다. 따라서 우리는 contents를 공유할 수 있도록 업로드와 다운로드를 해야한다. 이러한 일을 **[download-artifact](https://github.com/actions/download-artifact)**  Action이 해준다.
+이때 Job 간에 **`contents`** 를 공유해야한다. 하지만 Job은 별도의 VM 환경에서 실행되기 때문에 파일시스템이 공유되지 않는다. 따라서 우리는 Job 간에 **`contents`** 를 공유할 수 있도록 해야한다. 이러한 일을 **[download-artifact](https://github.com/actions/download-artifact)**  Action이 해준다.
 
 <br>
 
@@ -286,7 +286,7 @@ on:
 
 
 
-마지막으로 이런 것들을 만들거나 테스트할 때 cron을 trigger로 사용하는 것은 비효율적이다. 사용자가 원하는 시점에 원하는 변수로 trigger하는 방법으로 **[manual-events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events)**  라는 방법이 있다. 아래와 같이 정의하며 실행할 때마다 input으로 사용자가 원하는 값을 전달할 수도 있다.
+마지막으로, 테스트할 때 cron을 trigger로 사용하는 것은 비효율적이다. 사용자가 원하는 시점에 원하는 변수로 trigger하는 방법으로 **[manual-events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events)**  라는 방법이 있다. 아래와 같이 정의하며 실행할 때마다 input으로 사용자가 원하는 값을 전달할 수도 있다.
 
 {{< highlight YAML "linenos=table" >}}
 on:
@@ -305,7 +305,7 @@ on:
 
 # 6. 결론
 
-이 기록은 아무래도 설명서가 아닌 경험담이기 때문에 자세한 구축방법을 써놓진 않았다. 그러나 이런식으로 툴을 활용한 시스템 구축은 한번 만들어놓으면 나중에 다시 보았을 때 파악하기 힘들다.
+이 기록은 아무래도 설명서가 아닌 경험담이기 때문에 자세한 구축방법을 써놓진 않았다. 그리고 이런식으로 툴을 활용한 시스템 구축은 한번 만들어놓고 자세한 문서를 만들어놓지 않으면 나중에 다시 보았을 때 파악하기 힘들다. 이런 상황을 방지하려면 Zerobase에서도 구축할 수 있는 설명서가 되면 좋다.
 
 <br>
 
@@ -317,7 +317,7 @@ on:
 
 
 
-이 문서는 Zerobase에서도 구축할 수 있는 설명서가 될 때까지 업데이트해야할 것 같다. 그러나 더 좋은 것은 이러한 장황한 문서를 안보고도 쉽게 구축할 수 있는 것이다. 아래 작업들로 훨씬 편하게 만들 수 있을 것 같은데 이것들은 Next로 남겨두어야겠다.
+그러나 더 좋은 것은 장황한 문서를 안보고도 쉽게 구축할 수 있는 것이다. 아래 작업들로 훨씬 편하게 만들 수 있을 것 같은데 이것들은 Next로 남겨두어야겠다.
 
 <br>
 

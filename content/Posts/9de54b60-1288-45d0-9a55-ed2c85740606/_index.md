@@ -1,5 +1,5 @@
 ---
-date: 2021-07-19 06:57:00
+date: 2021-07-20 03:38:00
 resources:
 - name: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
   src: af2a2436-560b-4e7a-9b4f-3839b2e2055b.png
@@ -219,19 +219,25 @@ Database Cursor
 
 ## 5.1 Database를 공부해야겠다고 느꼈던 순간
 
-회사에서 **`DynamoDB`** 를 사용하는 프로젝트를 할 때가 DB 기초 지식에 대한 필요성을 처음 느낀 때였다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다. 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.
+회사에서 **`DynamoDB`** 를 사용하는 프로젝트에서 DB 기초 지식에 대한 필요성을 처음 느꼈다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다.
 
 <br>
 
 
 
-> ***DynamoDB에 필터를 걸어 find만 해주면 되겠구나. 그리고 Key 값으로 항목을 삭제하면 되겠구나.***
+그런데 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.
 
 <br>
 
 
 
-그런데 왠걸? 검색기능이 문제였다. 검색 결과 반환 시간이 약 **`몇십초`** 가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. **`범인은 1차원적이게도 DynamoDB 자체였다.`**  DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.
+> ***DynamoDB에 필터를 걸어 find만 해주면 되겠구나. 그리고 그 결과로 항목을 삭제하면 되겠구나.***
+
+<br>
+
+
+
+그런데 왠걸? 검색 결과 반환 시간이  **`몇십초`** 가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. **`범인은 1차원적이게도 DynamoDB 자체였다.`**  DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.
 
 검색이 아예 안되는 것은 아니었다. DynamoDB에서는 **`Partition Key`** 와 **`Sort Key`** 라는 개념이 있다. 이 두가지 Key를 가지고 사용할 수 있는 유즈케이스는 아래와 같다.
 
@@ -243,7 +249,7 @@ Database Cursor
 
 - 이 경우, Partition Key는 Unique한 값으로 이루어져 있어야함.
 
-- partition_key로 쿼리 시, Item 반환 (빠름)
+- Partition Key로 쿼리 시, Item 반환 (빠름)
 
 <br>
 
@@ -253,33 +259,35 @@ Database Cursor
 
 - 이 경우 Partition Key는 중복된 값으로 이루어져 있어도 됨.
 
-- partition_key와 sort_key로 쿼리 시, sort_key 필드로 정렬되어있는 Item 배열 반환 (빠름)
+- Partition Key와 Sort Key로 쿼리 시, Sort Key 필드로 정렬되어있는 Item 배열 반환 (빠름)
 
 <br>
 
 
 
-이제 문제가 되는 상황을 보자. 예를들어, 아래 **`GameScores`**  테이블에서 Partition Key는 **`UserID`** 이고 Sort Key는 **`GameTitle`** 이다.
+예를들어, 아래 **`GameScores`**  테이블에서 Partition Key는 **`UserID`** 이고 Sort Key는 **`GameTitle`** 이다.
 
 {{< img name="48a1a328-2146-44b6-a137-f0fcc9c7414d.png" size="large" width="1210" lazy=false >}}
 
 Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
-- "**`UserId`**  102번의 **`GameTitle`** 이 Starship X인 row를 줘"
+- "**`UserId`**  101번의 기록 중에 **`GameTitle`** 이 Starship X인 row를 줘"
 
 <br>
 
 
 
-그러나 그 외의 경우에는 매우 느리므로(전체 스캔 필요) 인덱싱을 사용해야한다.
+그러나 아래와 같은 경우에는 매우 느리다.(전체 스캔 필요)
 
 - "**`GameTitle`** 이 Starship X인 것들 중에서 **`TopScore`** 가 가장 높은 row를 줘"
 
+- 이러한 전체 스캔을 피하기 위해 인덱싱을 사용해야한다.
+
 <br>
 
 
 
-**`문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.`**  
+**`문제는 필드 개수가 많고 여러 필드를 사용한 조건으로 검색할 때다.`**  
 
 <br>
 
@@ -287,16 +295,16 @@ Partition Key와 Sort Key를 사용한 쿼리는 빠르다.
 
 아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.
 
-- "**`GameTitle`** 이 Starship X인 것들 중에서 **`TopScore`** 가 가장 높은 row를 줘" → Partition Key가 **`GameTitle`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
+- 검색조건 1 : "**`GameTitle`** 이 Starship X인 것들 중에서 **`TopScore`** 가 가장 높은 row를 줘" → Partition Key가 **`GameTitle`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
 
 
 {{< img name="31539c06-c10b-4a47-b140-0874d2a4c642.png" size="small" width="240" lazy=false >}}
 
-- "**`wins`** 가 1인 유저중에 가장 높은 **`TopScore`** 를 가진 row를 줘" → Partition Key가 **`wins`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
+- 검색조건 2 : "**`wins`** 가 1인 유저중에 가장 높은 **`TopScore`** 를 가진 row를 줘" → Partition Key가 **`wins`** 이고 Sort Key가 **`TopScore`** 인 인덱스 필요
 
-- ...
+- 검색조건 N : ...
 
-- **`필드가 더 많고 여러 조건이 겹친다면?`**  😱
+- **`필드가 더 많고 여러 조건이 조합된다면?`**  😱
 
 <br>
 
