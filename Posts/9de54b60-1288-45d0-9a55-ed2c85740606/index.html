@@ -801,13 +801,15 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
             <svg class="icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
-</div><p>회사에서 <strong><code>DynamoDB</code></strong> 를 사용하는 프로젝트를 할 때가 DB 기초 지식에 대한 필요성을 처음 느낀 때였다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다. 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.</p>
+</div><p>회사에서 <strong><code>DynamoDB</code></strong> 를 사용하는 프로젝트에서 DB 기초 지식에 대한 필요성을 처음 느꼈다. 당시 Java 웹 어플리케이션 유지보수를 맡았었다. DB로는 AWS의 DynamoDB를 사용하고 있었다.</p>
+<br>
+<p>그런데 어느날 검색기능과 선택 항목 삭제 기능을 추가해야하는 상황이 생겼다. 정말 단순한 일이라고 생각했다.</p>
 <br>
 <blockquote>
-<p><em><strong>DynamoDB에 필터를 걸어 find만 해주면 되겠구나. 그리고 Key 값으로 항목을 삭제하면 되겠구나.</strong></em></p>
+<p><em><strong>DynamoDB에 필터를 걸어 find만 해주면 되겠구나. 그리고 그 결과로 항목을 삭제하면 되겠구나.</strong></em></p>
 </blockquote>
 <br>
-<p>그런데 왠걸? 검색기능이 문제였다. 검색 결과 반환 시간이 약 <strong><code>몇십초</code></strong> 가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. <strong><code>범인은 1차원적이게도 DynamoDB 자체였다.</code></strong>  DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.</p>
+<p>그런데 왠걸? 검색 결과 반환 시간이  <strong><code>몇십초</code></strong> 가 걸렸다. 게다가 단 한번의 검색에 DynamoDB 컴퓨팅 리소스가 미친듯이 치솟았다. 이는 곧 비용 증가를 의미했다. 그때부터 DynamoDB 도큐먼트를 샅샅이 읽기 시작했다. <strong><code>범인은 1차원적이게도 DynamoDB 자체였다.</code></strong>  DynamoDB는 NoSQL기반 DB로써 단순 Primary Key로의 접근은 빠르지만 적절한 설계 없이는 검색 성능이 매우 떨어지는 특징을 가지고 있기 때문이었다.</p>
 <p>검색이 아예 안되는 것은 아니었다. DynamoDB에서는 <strong><code>Partition Key</code></strong> 와 <strong><code>Sort Key</code></strong> 라는 개념이 있다. 이 두가지 Key를 가지고 사용할 수 있는 유즈케이스는 아래와 같다.</p>
 <br>
 <p>하나의 필드를 Partition Key로 설정</p>
@@ -816,7 +818,7 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 <p>이 경우, Partition Key는 Unique한 값으로 이루어져 있어야함.</p>
 </li>
 <li>
-<p>partition_key로 쿼리 시, Item 반환 (빠름)</p>
+<p>Partition Key로 쿼리 시, Item 반환 (빠름)</p>
 </li>
 </ul>
 <br>
@@ -826,11 +828,11 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 <p>이 경우 Partition Key는 중복된 값으로 이루어져 있어도 됨.</p>
 </li>
 <li>
-<p>partition_key와 sort_key로 쿼리 시, sort_key 필드로 정렬되어있는 Item 배열 반환 (빠름)</p>
+<p>Partition Key와 Sort Key로 쿼리 시, Sort Key 필드로 정렬되어있는 Item 배열 반환 (빠름)</p>
 </li>
 </ul>
 <br>
-<p>이제 문제가 되는 상황을 보자. 예를들어, 아래 <strong><code>GameScores</code></strong>  테이블에서 Partition Key는 <strong><code>UserID</code></strong> 이고 Sort Key는 <strong><code>GameTitle</code></strong> 이다.</p>
+<p>예를들어, 아래 <strong><code>GameScores</code></strong>  테이블에서 Partition Key는 <strong><code>UserID</code></strong> 이고 Sort Key는 <strong><code>GameTitle</code></strong> 이다.</p>
 
 
 
@@ -861,19 +863,24 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 <p>Partition Key와 Sort Key를 사용한 쿼리는 빠르다.</p>
 <ul>
-<li>&ldquo;<strong><code>UserId</code></strong>  102번의 <strong><code>GameTitle</code></strong> 이 Starship X인 row를 줘&rdquo;</li>
+<li>&ldquo;<strong><code>UserId</code></strong>  101번의 기록 중에 <strong><code>GameTitle</code></strong> 이 Starship X인 row를 줘&rdquo;</li>
 </ul>
 <br>
-<p>그러나 그 외의 경우에는 매우 느리므로(전체 스캔 필요) 인덱싱을 사용해야한다.</p>
+<p>그러나 아래와 같은 경우에는 매우 느리다.(전체 스캔 필요)</p>
 <ul>
-<li>&ldquo;<strong><code>GameTitle</code></strong> 이 Starship X인 것들 중에서 <strong><code>TopScore</code></strong> 가 가장 높은 row를 줘&rdquo;</li>
+<li>
+<p>&ldquo;<strong><code>GameTitle</code></strong> 이 Starship X인 것들 중에서 <strong><code>TopScore</code></strong> 가 가장 높은 row를 줘&rdquo;</p>
+</li>
+<li>
+<p>이러한 전체 스캔을 피하기 위해 인덱싱을 사용해야한다.</p>
+</li>
 </ul>
 <br>
-<p><strong><code>문제는 필드가 많고 여러 필드를 사용한 검색이 발생할 때이다.</code></strong></p>
+<p><strong><code>문제는 필드 개수가 많고 여러 필드를 사용한 조건으로 검색할 때다.</code></strong></p>
 <br>
 <p>아래 쿼리 케이스를 전체 스캔없이 반환하려면 인덱스가 필요하다.</p>
 <ul>
-<li>&ldquo;<strong><code>GameTitle</code></strong> 이 Starship X인 것들 중에서 <strong><code>TopScore</code></strong> 가 가장 높은 row를 줘&rdquo; → Partition Key가 <strong><code>GameTitle</code></strong> 이고 Sort Key가 <strong><code>TopScore</code></strong> 인 인덱스 필요</li>
+<li>검색조건 1 : &ldquo;<strong><code>GameTitle</code></strong> 이 Starship X인 것들 중에서 <strong><code>TopScore</code></strong> 가 가장 높은 row를 줘&rdquo; → Partition Key가 <strong><code>GameTitle</code></strong> 이고 Sort Key가 <strong><code>TopScore</code></strong> 인 인덱스 필요</li>
 </ul>
 
 
@@ -905,13 +912,13 @@ Notion 페이지에 최적화되어있습니다. → Notion에서 보기
 
 <ul>
 <li>
-<p>&ldquo;<strong><code>wins</code></strong> 가 1인 유저중에 가장 높은 <strong><code>TopScore</code></strong> 를 가진 row를 줘&rdquo; → Partition Key가 <strong><code>wins</code></strong> 이고 Sort Key가 <strong><code>TopScore</code></strong> 인 인덱스 필요</p>
+<p>검색조건 2 : &ldquo;<strong><code>wins</code></strong> 가 1인 유저중에 가장 높은 <strong><code>TopScore</code></strong> 를 가진 row를 줘&rdquo; → Partition Key가 <strong><code>wins</code></strong> 이고 Sort Key가 <strong><code>TopScore</code></strong> 인 인덱스 필요</p>
 </li>
 <li>
-<p>&hellip;</p>
+<p>검색조건 N : &hellip;</p>
 </li>
 <li>
-<p><strong><code>필드가 더 많고 여러 조건이 겹친다면?</code></strong>  😱</p>
+<p><strong><code>필드가 더 많고 여러 조건이 조합된다면?</code></strong>  😱</p>
 </li>
 </ul>
 <br>
