@@ -1,5 +1,5 @@
 ---
-date: 2021-07-20 03:38:00
+date: 2021-07-23 02:39:00
 resources:
 - name: ff72eb95-786c-42da-87a6-95285df0e5dc.png
   src: ff72eb95-786c-42da-87a6-95285df0e5dc.png
@@ -31,7 +31,7 @@ resources:
 - name: 6c095d28-bfdf-4b79-89c5-96908f66495a.png
   src: 6c095d28-bfdf-4b79-89c5-96908f66495a.png
   title: ''
-title: Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme)
+title: Git Action으로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme)
 weight: 10
 
 ---
