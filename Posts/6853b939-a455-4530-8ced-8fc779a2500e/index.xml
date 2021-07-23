@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme) on @hwangseonbi</title>
+    <title>Git Action으로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme) on @hwangseonbi</title>
     <link>https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/</link>
-    <description>Recent content in Git Action로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme) on @hwangseonbi</description>
+    <description>Recent content in Git Action으로 Notion과 Hugo 블로그 동기화하기(Geekdoc Theme) on @hwangseonbi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 20 Jul 2021 03:38:00 +0000</lastBuildDate><atom:link href="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jul 2021 02:39:00 +0000</lastBuildDate><atom:link href="https://hwangseonbi.github.io/Posts/6853b939-a455-4530-8ced-8fc779a2500e/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
