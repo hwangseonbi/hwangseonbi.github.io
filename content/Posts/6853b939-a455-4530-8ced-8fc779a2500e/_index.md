@@ -1,5 +1,5 @@
 ---
-date: 2021-07-23 02:39:00
+date: 2021-07-30 09:30:00
 resources:
 - name: ff72eb95-786c-42da-87a6-95285df0e5dc.png
   src: ff72eb95-786c-42da-87a6-95285df0e5dc.png
@@ -195,7 +195,7 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 
 
-그 후 이 Root Page URL 주소로 notion2geekdoc 모듈을 실행시키면 아래 Left Navigation과 같이 테이블 단위로 카테고리화된다. 그리고 **`Status Property`** 가 **`Published`** 인 문서들이 geekdoc theme에 꼭 맞게 랜더링된다! 자세한 사용법은 **[README.md](https://github.com/hwangseonbi/notion2geekdoc/blob/main/README.md)** 에 적어놓았다.
+그후 이 Root Page URL 주소로 notion2geekdoc 모듈을 실행시키면 아래 Left Navigation과 같이 테이블 단위로 카테고리화된다. 그리고 **`Status Property`** 가 **`Published`** 인 문서들이 geekdoc theme에 꼭 맞게 랜더링된다! 자세한 사용법은 **[README.md](https://github.com/hwangseonbi/notion2geekdoc/blob/main/README.md)** 에 적어놓았다.
 
 {{< img name="78de027b-e494-4c4f-9bce-5d25975d47d3.png" size="large" width="2742" lazy=false >}}
 
@@ -209,7 +209,13 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 
 
-글을 작성하거나 편집할 때마다 파이썬 패키지를 실행시키고 Hugo 빌드 결과물을 Github에 커밋한다는 것... 또한 엄청난 **`노가다`** 이다. 이를 자동화할 수 있다.
+글을 작성하거나 편집할 때마다 파이썬 패키지를 실행시키고 Hugo 빌드 결과물을 Github에 커밋한다는 것... 또한 엄청난 **`노가다`** 이다. 
+
+<br>
+
+
+
+**`Notion에 글만 써놓으면 알아서 블로그에 연재되게 할 수는 없을까?`** 
 
 <br>
 
@@ -223,7 +229,7 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 그 동안 힐끗힐끗 신경쓰였던 Github의 Actions 탭이다. 알아보니 빌드, 테스트, 배포 등 다양한 작업을 할 수 있었다. 하나의 큰 작업을 workflow라고 한다. workflow 안에서는 언제 이 workflow가 실행될지 trigger를 정의하고 job과 step 단위로 할 일을 정의할 수 있다. 더 멋진 것은 이러한 workflow를 패키지화하여 다른 사람들과 공유할 수 있다는 것이다.
 
-예를들어 Hugo 빌드 환경을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. Hugo를 설치하는 작업들은 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)** 에 패키징 되어있다. 아래와 같이 Git Action workflow 정의파일에서 step을 정의할 때 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)**  을 거치면 그 이후 step부터는 Hugo를 사용할 수 있는 상태가 된다.
+예를들어 **`Hugo 빌드 환경`** 을 갖추기 위해서는 Hugo를 설치하는 등의 작업을 거쳐야한다. 그런데 이러한 일련의 과정들을 하나의 action으로 만들 수 있다. 우리는 직접 hugo를 설치하는 과정을 정의할 필요가 없다. Hugo를 설치하는 작업들은 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)** 에 패키징 되어있다. 아래와 같이 Git Action workflow 정의파일에서 step을 정의할 때 **[peaceiris/actions-hugo@v2](https://github.com/peaceiris/actions-hugo)**  을 거치면 그 이후 step부터는 Hugo를 사용할 수 있는 상태가 된다.
 
 {{< highlight YAML "linenos=table" >}}
 - name: Setup Hugo
@@ -241,7 +247,7 @@ github.io에 정적블로그를 배포하는 방법은 찾아보면 매우 많�
 
 
 
-아무튼 나는 아래 순서로 작업을 실행되게 했다.
+아무튼 나는 아래 순서로 작업들이 실행되게 만들었다.
 
 1. 매일 하루에 한번씩 notion2geekdoc 모듈을 실행
 
@@ -305,7 +311,7 @@ on:
 
 # 6. 결론
 
-이 기록은 아무래도 설명서가 아닌 경험담이기 때문에 자세한 구축방법을 써놓진 않았다. 그리고 이런식으로 툴을 활용한 시스템 구축은 한번 만들어놓고 자세한 문서를 만들어놓지 않으면 나중에 다시 보았을 때 파악하기 힘들다. 이런 상황을 방지하려면 Zerobase에서도 구축할 수 있는 설명서가 되면 좋다.
+이 기록은 아무래도 설명서가 아닌 경험담이기 때문에 자세한 구축방법을 써놓진 않았다. 그리고 이런식으로 툴을 활용한 시스템 구축은 한번 만들어놓고 자세한 문서를 만들어놓지 않으면 나중에 다시 보았을 때 파악하기 힘들다.
 
 <br>
 
@@ -317,7 +323,7 @@ on:
 
 
 
-그러나 더 좋은 것은 장황한 문서를 안보고도 쉽게 구축할 수 있는 것이다. 아래 작업들로 훨씬 편하게 만들 수 있을 것 같은데 이것들은 Next로 남겨두어야겠다.
+이런 상황을 방지하려면 Zerobase에서도 구축할 수 있는 설명서가 되면 좋다. 그러나 더 좋은 것은 장황한 문서를 안보고도 쉽게 구축할 수 있는 것이다. 아래 작업들로 훨씬 편하게 만들 수 있을 것 같은데 이것들은 Next로 남겨두어야겠다.
 
 <br>
 
@@ -325,7 +331,7 @@ on:
 
 - notion2geekdoc모듈의 setuptools 설정 등 사전 작업 및 pypi 등록
 
-- 하나의 git action으로 위 작업들이 자동화되게끔 git action 제작 또는 Docker conatiner image 제작 (가능할 지는 모르겠다.)
+- 하나의 git action으로 위 작업들이 자동화되게끔 git action 제작 또는 Docker conatiner image 제작 (가능할까?)
 
 <br>
 
